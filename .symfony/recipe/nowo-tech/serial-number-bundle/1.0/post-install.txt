@@ -1,0 +1,7 @@
+Serial Number Bundle has been installed!
+
+The following file has been created:
+  - config/packages/nowo_serial_number.yaml (default configuration)
+
+You can customize mask_char and mask_visible_last in that file.
+See docs/INSTALLATION.md and docs/USAGE.md for usage and Twig examples.

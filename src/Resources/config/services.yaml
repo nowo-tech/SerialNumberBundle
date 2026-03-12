@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Nowo\SerialNumberBundle\Service\SerialNumberGenerator:
+    class: Nowo\SerialNumberBundle\Service\SerialNumberGenerator
+
+  Nowo\SerialNumberBundle\Twig\SerialNumberTwigExtension:
+    class: Nowo\SerialNumberBundle\Twig\SerialNumberTwigExtension
+    arguments:
+      - '@Nowo\SerialNumberBundle\Service\SerialNumberGenerator'
+      - '%nowo_serial_number.mask_char%'
+      - '%nowo_serial_number.mask_visible_last%'
+    tags:
+      - { name: twig.extension }

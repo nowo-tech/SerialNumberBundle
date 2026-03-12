@@ -1,0 +1,3 @@
+nowo_serial_number:
+    mask_char: '*'
+    mask_visible_last: 4

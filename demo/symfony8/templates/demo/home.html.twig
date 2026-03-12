@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Serial Number Bundle - Demo - {{ version_badge }}{% endblock %}
+
+{% block body %}
+    <h1>Serial Number Bundle – Demo</h1>
+    <p><span class="badge">{{ version_badge }}</span></p>
+
+    <p>Constant <strong>FA</strong>, product <strong>RI</strong> (receipt) or <strong>PO</strong> (order), year, month, id as number or hexadecimal.</p>
+
+    {% for ex in examples %}
+    <section>
+        <h2>{{ ex.name }}</h2>
+        <p><strong>Pattern:</strong> <code>{{ ex.pattern }}</code></p>
+        <p><strong>Context:</strong> <code>{{ ex.context|json_encode }}</code></p>
+        {% if ex.id is not null %}
+        <p><strong>Id:</strong> {{ ex.id }}{% if ex.padding %} (padding {{ ex.padding }}){% endif %}</p>
+        {% endif %}
+        <p><strong>Result:</strong> <code>{{ ex.serial }}</code></p>
+        <p><strong>Masked (last 4):</strong> <code>{{ ex.serial|serial_number_mask(4) }}</code></p>
+    </section>
+    {% endfor %}
+
+    <section>
+        <h2>Generate in Twig with the same pattern</h2>
+        <p>Example with the first pattern (<code>{{ examples[0].pattern }}</code>), id 99, padding 5:</p>
+        <p>
+            <strong>Full:</strong> <code>{{ serial_number(examples[0].context, examples[0].pattern, 99, 5) }}</code><br>
+            <strong>Masked:</strong> <code>{{ serial_number(examples[0].context, examples[0].pattern, 99, 5)|serial_number_mask(4) }}</code>
+        </p>
+        <p class="note">In Twig the <code>id</code> is the third argument of <code>serial_number()</code>.</p>
+    </section>
+{% endblock %}

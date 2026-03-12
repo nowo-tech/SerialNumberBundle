@@ -1,0 +1,9 @@
+# Serial Number Bundle Configuration
+# This file was automatically created by Symfony Flex.
+# See docs/CONFIGURATION.md for all options.
+
+nowo_serial_number:
+    # Character used to mask the serial when using the Twig filter serial_number_mask
+    mask_char: '*'
+    # Default number of trailing characters left visible when masking (e.g. 4 for last 4 digits)
+    mask_visible_last: 4
