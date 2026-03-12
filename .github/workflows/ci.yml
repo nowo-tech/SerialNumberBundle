@@ -1,4 +1,5 @@
 # CI: tests on PHP 8.1–8.5; Symfony satisfied by composer.json constraints.
+# Release (incl. latest) is created by release.yml on tag push (v*).
 name: CI
 
 on:

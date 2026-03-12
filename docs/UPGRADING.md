@@ -1,5 +1,9 @@
 # Upgrading
 
+## From 1.0.0 to 1.0.1
+
+No breaking changes. This release adds the GitHub release workflow and fixes the Symfony 7 demo and a test expectation.
+
 ## From 0.x / pre-1.0 to 1.0
 
 No breaking changes for the initial 1.0 release. If you were using an alpha/beta, ensure:

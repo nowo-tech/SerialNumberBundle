@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 _No changes yet._
 
+## [1.0.1] - 2026-03-12
+
+### Added
+
+- GitHub Actions workflow `release.yml`: creates a GitHub Release (with “Latest”) when a tag `v*` is pushed; uses tag message and `docs/CHANGELOG.md` for release notes.
+
+### Fixed
+
+- Demo Symfony 7: added missing `bin/console` so `composer install` (and `cache:clear`) succeeds.
+- Test expectation in `testMaskSerialNumberMultiCharMaskUsesOnlyFirstChar` (correct mask length for 14‑char serial).
+
 ## [1.0.0] - 2026-03-12
 
 ### Added
@@ -23,5 +34,6 @@ _No changes yet._
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.1
 [1.0.0]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.0
