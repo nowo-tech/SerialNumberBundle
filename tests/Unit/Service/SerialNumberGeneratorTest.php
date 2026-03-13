@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Nowo\SerialNumberBundle\Tests\Service;
+namespace Nowo\SerialNumberBundle\Tests\Unit\Service;
 
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use PHPUnit\Framework\TestCase;
+
+use const STR_PAD_LEFT;
 
 /**
  * @covers \Nowo\SerialNumberBundle\Service\SerialNumberGenerator
@@ -71,6 +73,6 @@ final class SerialNumberGeneratorTest extends TestCase
         $context = ['prefix' => 'FAC'];
         $pattern = '{prefix}-{id}';
         $result  = $this->generator->generate($context, $pattern, 1, 100);
-        self::assertSame('FAC-' . str_pad('1', 32, '0', \STR_PAD_LEFT), $result);
+        self::assertSame('FAC-' . str_pad('1', 32, '0', STR_PAD_LEFT), $result);
     }
 }

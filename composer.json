@@ -59,7 +59,7 @@
         }
     },
     "archive": {
-        "exclude": ["/demo"]
+        "exclude": ["/demo", "/.cursor"]
     },
     "config": {
         "sort-packages": true,
@@ -71,6 +71,8 @@
     "prefer-stable": true,
     "scripts": {
         "test": "phpunit",
+        "test-unit": "phpunit --testsuite=Unit",
+        "test-integration": "phpunit --testsuite=Integration",
         "test-coverage": "phpunit --coverage-html coverage --coverage-clover coverage.xml --coverage-text",
         "cs-check": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix",
@@ -86,6 +88,8 @@
     },
     "scripts-descriptions": {
         "test": "Run PHPUnit tests",
+        "test-unit": "Run Unit tests only",
+        "test-integration": "Run Integration tests only",
         "test-coverage": "Run PHPUnit tests with code coverage",
         "cs-check": "Check code style with PHP-CS-Fixer",
         "cs-fix": "Fix code style with PHP-CS-Fixer",

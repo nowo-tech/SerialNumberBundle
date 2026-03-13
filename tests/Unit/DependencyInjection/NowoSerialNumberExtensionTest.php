@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nowo\SerialNumberBundle\Tests\DependencyInjection;
+namespace Nowo\SerialNumberBundle\Tests\Unit\DependencyInjection;
 
 use Nowo\SerialNumberBundle\DependencyInjection\NowoSerialNumberExtension;
 use PHPUnit\Framework\TestCase;

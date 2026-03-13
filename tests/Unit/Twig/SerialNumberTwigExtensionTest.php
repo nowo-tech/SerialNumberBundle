@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Nowo\SerialNumberBundle\Tests\Twig;
+namespace Nowo\SerialNumberBundle\Tests\Unit\Twig;
 
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use Nowo\SerialNumberBundle\Twig\SerialNumberTwigExtension;
 use PHPUnit\Framework\TestCase;
+
+use function strlen;
 
 /**
  * @covers \Nowo\SerialNumberBundle\Twig\SerialNumberTwigExtension

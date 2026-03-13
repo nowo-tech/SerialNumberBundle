@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Nowo\SerialNumberBundle\Tests;
+namespace Nowo\SerialNumberBundle\Tests\Unit;
 
 use Nowo\SerialNumberBundle\DependencyInjection\NowoSerialNumberExtension;
 use Nowo\SerialNumberBundle\NowoSerialNumberBundle;
