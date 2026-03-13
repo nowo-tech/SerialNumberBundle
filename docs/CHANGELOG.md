@@ -8,6 +8,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 _No changes yet._
 
+## [1.0.2] - 2026-03-13
+
+### Added
+
+- Test structure aligned with standards: tests under `tests/Unit/` and `tests/Integration/` (§7.1.1). Integration tests verify bundle wiring in a compiled container (generator and Twig extension with default and custom config).
+- Composer scripts `test-unit` and `test-integration` to run each suite separately. See [CONTRIBUTING](CONTRIBUTING.md).
+
+### Changed
+
+- Existing tests moved into `tests/Unit/` with namespace `Nowo\SerialNumberBundle\Tests\Unit\...`. Integration tests live in `tests/Integration/` with namespace `...\Tests\Integration\...`.
+- `phpunit.xml.dist` defines two testsuites: `Unit` and `Integration`.
+
 ## [1.0.1] - 2026-03-12
 
 ### Added
@@ -34,6 +46,7 @@ _No changes yet._
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.2
 [1.0.1]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.1
 [1.0.0]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.0

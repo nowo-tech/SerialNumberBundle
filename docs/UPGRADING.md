@@ -1,5 +1,9 @@
 # Upgrading
 
+## From 1.0.1 to 1.0.2
+
+No breaking changes. Tests are now under `tests/Unit/` and `tests/Integration/`. If you extended or ran tests by path, update to the new structure; `composer test` and `make test` still run all tests. New scripts: `composer test-unit`, `composer test-integration`.
+
 ## From 1.0.0 to 1.0.1
 
 No breaking changes. This release adds the GitHub release workflow and fixes the Symfony 7 demo and a test expectation.
