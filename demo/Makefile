@@ -141,6 +141,9 @@ verify-all:
 	@$(MAKE) verify-symfony7
 	@$(MAKE) verify-symfony8
 
+release-check: test-coverage-all release-verify
+	@echo "All demos passed release-check."
+
 release-verify:
 	@for demo in $(DEMOS); do \
 		port=$$(grep '^PORT=' $$demo/.env 2>/dev/null | cut -d= -f2 | tr -d '\r'); \

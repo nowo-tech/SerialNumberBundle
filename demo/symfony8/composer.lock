@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36ce2763d7c865af47bee37b39a66f55",
+    "content-hash": "52596907d684dae3ce60638ca165d614",
     "packages": [
         {
             "name": "nowo-tech/serial-number-bundle",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/serial-number-bundle",
-                "reference": "e6168d7d46c7d2dcc25d40d871303e1b38e88ece"
+                "reference": "60300cd1543b65a38a67e36bda36d6713f37078d"
             },
             "require": {
                 "php": ">=8.1 <8.6",
@@ -46,12 +46,19 @@
             },
             "archive": {
                 "exclude": [
-                    "/demo"
+                    "/demo",
+                    "/.cursor"
                 ]
             },
             "scripts": {
                 "test": [
                     "phpunit"
+                ],
+                "test-unit": [
+                    "phpunit --testsuite=Unit"
+                ],
+                "test-integration": [
+                    "phpunit --testsuite=Integration"
                 ],
                 "test-coverage": [
                     "phpunit --coverage-html coverage --coverage-clover coverage.xml --coverage-text"
@@ -118,106 +125,6 @@
             "transport-options": {
                 "relative": false
             }
-        },
-        {
-            "name": "nowo-tech/twig-inspector-bundle",
-            "version": "v1.0.22",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nowo-tech/TwigInspectorBundle.git",
-                "reference": "6dc94c33263bbd5bf79e0851dc9b46d17a0e11bd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/6dc94c33263bbd5bf79e0851dc9b46d17a0e11bd",
-                "reference": "6dc94c33263bbd5bf79e0851dc9b46d17a0e11bd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1 <8.6",
-                "symfony/config": "^6.0 || ^7.0 || ^8.0",
-                "symfony/console": "^6.0 || ^7.0 || ^8.0",
-                "symfony/dependency-injection": "^6.0 || ^7.0 || ^8.0",
-                "symfony/error-handler": "^6.0 || ^7.0 || ^8.0",
-                "symfony/filesystem": "^6.0 || ^7.0 || ^8.0",
-                "symfony/http-foundation": "^6.0 || ^7.0 || ^8.0",
-                "symfony/http-kernel": "^6.0 || ^7.0 || ^8.0",
-                "symfony/routing": "^6.0 || ^7.0 || ^8.0",
-                "symfony/web-profiler-bundle": "^6.0 || ^7.0 || ^8.0",
-                "twig/twig": "^3.8 || ^4.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "phpstan/extension-installer": "^1.4",
-                "phpstan/phpstan": "^2.0",
-                "phpstan/phpstan-symfony": "^2.0",
-                "phpunit/phpunit": "^10.0",
-                "rector/rector": "^2.0",
-                "symfony/yaml": "^6.0 || ^7.0 || ^8.0"
-            },
-            "suggest": {
-                "symfony/flex": "For automatic recipe installation (config and routes)"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Nowo\\TwigInspectorBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Héctor Franco Aceituno",
-                    "email": "hectorfranco@nowo.tech",
-                    "homepage": "https://github.com/HecFranco",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Nowo.tech",
-                    "homepage": "https://nowo.tech"
-                }
-            ],
-            "description": "Debug Twig templates in the browser: visual overlay, click-to-open in IDE, Web Profiler. Symfony 6|7|8.",
-            "homepage": "https://github.com/nowo-tech/twig-inspector-bundle",
-            "keywords": [
-                "block-inspector",
-                "bundle",
-                "debug",
-                "debugging",
-                "dev-tool",
-                "development",
-                "ide-integration",
-                "inspect",
-                "inspector",
-                "symfony",
-                "symfony-flex",
-                "symfony-profiler",
-                "template",
-                "template-finder",
-                "template-inspector",
-                "templates",
-                "toolbar-extension",
-                "twig",
-                "twig-debug",
-                "twig-inspector",
-                "web-profiler"
-            ],
-            "support": {
-                "changelog": "https://github.com/nowo-tech/twig-inspector-bundle/blob/main/docs/CHANGELOG.md",
-                "docs": "https://github.com/nowo-tech/twig-inspector-bundle/tree/main/docs",
-                "issues": "https://github.com/nowo-tech/twig-inspector-bundle/issues",
-                "source": "https://github.com/nowo-tech/twig-inspector-bundle"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/HecFranco",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-04T16:30:16+00:00"
         },
         {
             "name": "psr/cache",
@@ -3234,6 +3141,83 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
             },
             "time": "2025-12-06T11:56:16+00:00"
+        },
+        {
+            "name": "nowo-tech/twig-inspector-bundle",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nowo-tech/TwigInspectorBundle.git",
+                "reference": "cbd9e95d19418c50590daa41d74ea7e6d2c8e0b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/cbd9e95d19418c50590daa41d74ea7e6d2c8e0b8",
+                "reference": "cbd9e95d19418c50590daa41d74ea7e6d2c8e0b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1 <8.6",
+                "symfony/config": "^6.0 || ^7.0 || ^8.0",
+                "symfony/console": "^6.0 || ^7.0 || ^8.0",
+                "symfony/dependency-injection": "^6.0 || ^7.0 || ^8.0",
+                "symfony/filesystem": "^6.0 || ^7.0 || ^8.0",
+                "symfony/http-foundation": "^6.0 || ^7.0 || ^8.0",
+                "symfony/http-kernel": "^6.0 || ^7.0 || ^8.0",
+                "symfony/routing": "^6.0 || ^7.0 || ^8.0",
+                "symfony/web-profiler-bundle": "^6.0 || ^7.0 || ^8.0",
+                "twig/twig": "^3.8 || ^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpunit/phpunit": "^10.0",
+                "symfony/yaml": "^6.0 || ^7.0 || ^8.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Nowo\\TwigInspectorBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Héctor Franco Aceituno",
+                    "email": "hectorfranco@nowo.com",
+                    "homepage": "https://github.com/HecFranco",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Nowo.tech",
+                    "homepage": "https://nowo.tech"
+                }
+            ],
+            "description": "Symfony bundle that adds the possibility to find Twig templates and blocks used for rendering HTML pages faster during development",
+            "homepage": "https://github.com/nowo-tech/twig-inspector-bundle",
+            "keywords": [
+                "bundle",
+                "debug",
+                "inspect",
+                "symfony",
+                "template",
+                "toolbar-extension",
+                "twig",
+                "web-profiler"
+            ],
+            "support": {
+                "issues": "https://github.com/nowo-tech/twig-inspector-bundle/issues",
+                "source": "https://github.com/nowo-tech/twig-inspector-bundle"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/HecFranco",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-12-15T11:49:16+00:00"
         },
         {
             "name": "phar-io/manifest",
