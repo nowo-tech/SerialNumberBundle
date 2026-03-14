@@ -28,9 +28,10 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 - [Security](docs/SECURITY.md)
 - [Engram](docs/ENGRAM.md)
 
-### Demos
+### Additional documentation
 
-- [Demo (Symfony 7 & 8)](demo/README.md) – run `make -C demo up-symfony8` from the bundle root.
+- [Demo (Symfony 7 & 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
+- [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
 
 ## Quick example
 
