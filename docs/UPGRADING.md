@@ -1,5 +1,9 @@
 # Upgrading
 
+## From 1.0.2 to 1.0.3
+
+No breaking changes. Documentation only: new [DEMO-FRANKENPHP.md](DEMO-FRANKENPHP.md) for FrankenPHP demo setup.
+
 ## From 1.0.1 to 1.0.2
 
 No breaking changes. Tests are now under `tests/Unit/` and `tests/Integration/`. If you extended or ran tests by path, update to the new structure; `composer test` and `make test` still run all tests. New scripts: `composer test-unit`, `composer test-integration`.

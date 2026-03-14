@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 _No changes yet._
 
+## [1.0.3] - 2026-03-13
+
+### Added
+
+- [DEMO-FRANKENPHP.md](DEMO-FRANKENPHP.md): documentation for running demos with FrankenPHP in development and production (Caddyfile.dev, worker mode, ports). Linked from README under Additional documentation.
+
 ## [1.0.2] - 2026-03-13
 
 ### Added
@@ -46,7 +52,8 @@ _No changes yet._
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.3
 [1.0.2]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.2
 [1.0.1]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.1
 [1.0.0]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.0
