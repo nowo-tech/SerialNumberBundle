@@ -1,5 +1,9 @@
 # Upgrading
 
+## From 1.0.3 to 1.0.4
+
+No breaking changes. Demo Symfony 7 only: Composer audit config and routing file extensions (`.xml`) so the demo runs with Symfony 7.1.x and `composer update` / `cache:clear` succeed.
+
 ## From 1.0.2 to 1.0.3
 
 No breaking changes. Documentation only: new [DEMO-FRANKENPHP.md](DEMO-FRANKENPHP.md) for FrankenPHP demo setup.

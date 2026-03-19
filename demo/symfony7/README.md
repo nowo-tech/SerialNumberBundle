@@ -24,6 +24,10 @@ Open http://localhost:8001 (or the `PORT` in `.env`).
 
 The bundle is loaded from `/var/serial-number-bundle` (mounted from repo root). Run from the bundle repository.
 
+## Composer audit
+
+This demo sets `config.audit.block-insecure: false` so `composer update` can resolve dependencies when Packagist security advisories affect transitive packages (e.g. symfony/http-foundation). Use only for local development; do not replicate this in production applications.
+
 ## Commands
 
 - `make up` / `make down` – start/stop

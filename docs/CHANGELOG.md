@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 _No changes yet._
 
+## [1.0.4] - 2026-03-13
+
+### Fixed
+
+- **Demo Symfony 7:** `composer update` was blocked by Packagist security advisories on transitive packages. Added `config.audit.block-insecure: false` in the demo’s `composer.json` (local development only; see demo README).
+- **Demo Symfony 7:** After resolving to Symfony 7.1.x, `cache:clear` failed because routing files were referenced as `.php` (Symfony 7.3+). Updated `config/routes/framework.yaml` and `config/routes/web_profiler.yaml` to use `.xml` routes for compatibility with Symfony 7.1 (`errors.xml`, `wdt.xml`, `profiler.xml`).
+
 ## [1.0.3] - 2026-03-13
 
 ### Added
@@ -52,7 +59,8 @@ _No changes yet._
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.4
 [1.0.3]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.3
 [1.0.2]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.2
 [1.0.1]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.1
