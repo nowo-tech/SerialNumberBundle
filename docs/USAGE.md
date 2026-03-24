@@ -55,7 +55,7 @@ Mask an existing serial string (e.g. for display in lists) so only the last N ch
 
 ```twig
 {{ invoice.serialNumber|serial_number_mask(4) }}
-{# "FAC-2025-01-00042" → "***************0042" #}
+{# "FAC-2025-01-00042" → "*************0042" #}
 
 {{ invoice.serialNumber|serial_number_mask(6, '•') }}
 {# optional: visible last 6, mask char '•' #}

@@ -49,6 +49,7 @@ The demo applications are configured for **local development and debugging**:
 - **Symfony Web Profiler** (`Symfony\Bundle\WebProfilerBundle\WebProfilerBundle`) — enabled in `dev` and `test` environments. Provides the debug toolbar and profiler at the bottom of each page.
 - **Symfony Debug bundle** (`Symfony\Bundle\DebugBundle\DebugBundle`) — enabled in `dev` and `test`. Required for the profiler and improved error pages.
 - **Serial Number Bundle** (`Nowo\SerialNumberBundle\NowoSerialNumberBundle`) — the bundle under test; enabled in the demos. The demos are the bundle’s own test applications.
+- **Twig Inspector Bundle** (`nowo-tech/twig-inspector-bundle`) — optional dev tooling for Twig debugging; registered for `dev` and `test` only in the demo apps.
 
 Example `config/bundles.php` (Symfony 8 demo):
 
@@ -62,10 +63,11 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class               => ['all' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
     Nowo\SerialNumberBundle\NowoSerialNumberBundle::class     => ['all' => true],
+    Nowo\TwigInspectorBundle\NowoTwigInspectorBundle::class   => ['dev' => true, 'test' => true],
 ];
 ```
 
-In **production** (`APP_ENV=prod`), only bundles registered for `all` or `prod` are loaded, so Web Profiler is not active.
+In **production** (`APP_ENV=prod`), only bundles registered for `all` or `prod` are loaded, so Web Profiler and Twig Inspector are not active.
 
 ---
 

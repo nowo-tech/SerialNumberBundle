@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-_No changes yet._
+### Changed
+
+- **Documentation**: Corrected mask examples in README and USAGE (last four characters of `FAC-2025-01-00042` are `0042`). README requirements aligned with `composer.json` (PHP `< 8.6`). Makefile `help` lists `release-check-demos` as part of `release-check`. **DEMO-FRANKENPHP.md**: demo `bundles.php` example includes Twig Inspector (as in the repo demos). **SECURITY.md** rewritten in English to match the rest of the docs.
 
 ## [1.0.4] - 2026-03-13
 

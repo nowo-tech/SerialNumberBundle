@@ -54,12 +54,12 @@ $serial = $this->serialNumberGenerator->generate(
     invoice.id,
     5
 )|serial_number_mask(4) }}
-{# → "***************00042" #}
+{# → "*************0042" #}
 ```
 
 ## Requirements
 
-- PHP 8.1+
+- PHP >= 8.1, < 8.6
 - Symfony 6.0 | 7.0 | 8.0
 - Twig 3.8+ or 4.x
 

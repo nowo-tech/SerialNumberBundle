@@ -1,69 +1,69 @@
-# Revisión de seguridad – SerialNumberBundle
+# Security – SerialNumberBundle
 
-## Resumen
+## Summary
 
-El bundle **no expone controladores ni rutas HTTP**. Solo ofrece un servicio (`SerialNumberGenerator`), una extensión Twig (`serial_number`, `serial_number_mask`) y configuración. La superficie de ataque es reducida.
+The bundle **does not register HTTP routes or controllers**. It exposes a service (`SerialNumberGenerator`), a Twig extension (`serial_number`, `serial_number_mask`), and configuration. The attack surface is small.
 
-Se han aplicado correcciones para evitar **abuso por consumo de recursos (DoS)** y se documentan buenas prácticas para **XSS** cuando los datos vienen de usuario.
-
----
-
-## 1. Riesgos abordados (corregidos en código)
-
-### 1.1 DoS por `str_repeat` en el enmascarado
-
-- **Problema:** Si en Twig se pasaba `visibleLast` negativo (p. ej. `-1000000`), `maskLength = length - visible` podía ser enorme y `str_repeat($char, $maskLength)` consumía mucha memoria/CPU.
-- **Corrección:** Se fuerza `visible = max(0, $visible)` en `SerialNumberTwigExtension::maskSerialNumber()`.
-
-### 1.2 DoS por serial muy largo
-
-- **Problema:** Un serial de millones de caracteres (p. ej. desde base de datos o variable de plantilla) hacía que `str_repeat` generara una cadena gigante.
-- **Corrección:** Se limita la longitud del serial a **2048** caracteres (`MAX_SERIAL_LENGTH`). Por encima se trunca antes de enmascarar.
-
-### 1.3 DoS por `mask_char` de varios caracteres
-
-- **Problema:** Si en configuración o en Twig se usaba una cadena larga como carácter de máscara, `str_repeat($char, $maskLength)` multiplicaba la longitud de salida.
-- **Corrección:** En `maskSerialNumber()` se usa solo el primer carácter (multibyte-safe con `mb_substr`). En `Configuration` se valida que `mask_char` sea un solo carácter.
-
-### 1.4 DoS por `idPadding` muy grande
-
-- **Problema:** `str_pad($idStr, $idPadding, '0', STR_PAD_LEFT)` con `$idPadding` enorme (p. ej. desde plantilla o configuración) podía consumir mucha memoria.
-- **Corrección:** Se limita el padding a **32** caracteres (`MAX_ID_PADDING`) en `SerialNumberGenerator::generate()`.
+Mitigations address **resource exhaustion (DoS)** and document **XSS** considerations when data comes from users.
 
 ---
 
-## 2. XSS y datos de usuario
+## 1. Risks addressed (fixed in code)
 
-Las funciones/filtros Twig están declarados con **`is_safe => ['html']`**, es decir, Twig no escapa la salida. Eso es adecuado cuando los datos son **controlados por la aplicación** (por ejemplo, números de factura generados por el propio sistema).
+### 1.1 DoS via `str_repeat` when masking
 
-- **Recomendación:** No pasar a `serial_number()` o `serial_number_mask()` datos que provengan directamente de entrada de usuario (formularios, query string, etc.) sin sanitizar o sin escapar la salida.
-- Si en la aplicación el serial o el contexto pueden contener contenido de usuario, hay que:
-  - Escapar en plantilla (p. ej. `{{ serial|serial_number_mask(4)|e }}` si no se usa `is_safe` para ese valor), o
-  - Asegurar que el valor ya viene sanitizado antes de pasarlo al bundle.
+- **Issue:** A negative `visibleLast` in Twig (e.g. `-1000000`) could make `maskLength = length - visible` huge and `str_repeat($char, $maskLength)` consume excessive memory/CPU.
+- **Mitigation:** `visible = max(0, $visible)` in `SerialNumberTwigExtension::maskSerialNumber()`.
 
-El bundle no realiza escape HTML; delega en la aplicación el uso seguro en contexto HTML.
+### 1.2 DoS via very long serial strings
+
+- **Issue:** A multi-megabyte serial (e.g. from a database or template variable) could make `str_repeat` build a huge string.
+- **Mitigation:** Serial input is truncated to **2048** characters (`MAX_SERIAL_LENGTH`) before masking.
+
+### 1.3 DoS via multi-character `mask_char`
+
+- **Issue:** A long string used as the mask character could multiply output size when repeated.
+- **Mitigation:** Only the first character is used (multibyte-safe via `mb_substr`). `Configuration` validates `mask_char` as a single character.
+
+### 1.4 DoS via very large `idPadding`
+
+- **Issue:** `str_pad($idStr, $idPadding, '0', STR_PAD_LEFT)` with a huge `$idPadding` could consume excessive memory.
+- **Mitigation:** Padding is capped at **32** (`MAX_ID_PADDING`) in `SerialNumberGenerator::generate()`.
 
 ---
 
-## 3. Otros aspectos revisados
+## 2. XSS and user-controlled data
 
-| Aspecto | Estado |
-|--------|--------|
-| Inyección SQL | No aplica: el bundle no ejecuta SQL. |
-| Control de acceso | No aplica: no hay rutas ni controladores. |
-| Secretos en configuración | No se almacenan contraseñas ni tokens. `mask_char` y `mask_visible_last` son opciones de presentación. |
-| Dependencias | Solo Symfony (config, DI, HttpKernel) y Twig. Revisar con `composer audit` en el proyecto que use el bundle. |
-| Carga de configuración | La configuración se carga desde YAML del bundle y de la app; no hay carga desde input de usuario. |
+Twig functions/filters use **`is_safe => ['html']`**, so Twig does not escape the output. That is appropriate when values are **application-controlled** (e.g. system-generated invoice numbers).
+
+- **Recommendation:** Do not pass unsanitized user input (forms, query strings, etc.) directly into `serial_number()` or `serial_number_mask()` without validating/escaping the result for HTML.
+- If serials or context values may contain user content:
+  - Escape in the template (e.g. `{{ serial|serial_number_mask(4)|e }}` when you need escaping for that value), or
+  - Ensure values are sanitized before they reach the bundle.
+
+The bundle does not HTML-escape; the application must use serials safely in HTML context.
 
 ---
 
-## 4. Tests de seguridad
+## 3. Other aspects reviewed
 
-En los tests se han añadido casos que garantizan:
+| Topic | Notes |
+|-------|--------|
+| SQL injection | N/A: the bundle does not execute SQL. |
+| Access control | N/A: no routes or controllers. |
+| Secrets in config | No passwords or tokens. `mask_char` and `mask_visible_last` are presentation-only. |
+| Dependencies | Symfony (config, DI, HttpKernel) and Twig. Run `composer audit` in consuming projects. |
+| Configuration loading | Loaded from YAML; not from raw user input. |
 
-- `visibleLast` negativo se trata como 0 (full mask).
-- Serial muy largo se trunca (límite 2048).
-- `maskChar` de varios caracteres se reduce al primer carácter.
-- `idPadding` excesivo se limita a 32.
+---
 
-Ejecutar la suite completa con `composer test` (o `./vendor/bin/phpunit`) para validar que las protecciones siguen activas tras cambios en el código.
+## 4. Security-related tests
+
+Tests cover:
+
+- Negative `visibleLast` is treated as 0 (fully masked).
+- Very long serials are truncated (2048 limit).
+- Multi-character `maskChar` is reduced to the first character.
+- Excessive `idPadding` is capped at 32.
+
+Run the full suite with `composer test` (or `./vendor/bin/phpunit`) after changes.
