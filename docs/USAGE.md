@@ -1,5 +1,13 @@
 # Usage
 
+## Table of contents
+
+- [Service: SerialNumberGenerator](#service-serialnumbergenerator)
+  - [Parameters](#parameters)
+- [Twig function: serial_number](#twig-function-serial_number)
+- [Twig filter: serial_number_mask](#twig-filter-serial_number_mask)
+- [Combined: generate and mask in Twig](#combined-generate-and-mask-in-twig)
+
 ## Service: SerialNumberGenerator
 
 Inject `Nowo\SerialNumberBundle\Service\SerialNumberGenerator` and call `generate()`:

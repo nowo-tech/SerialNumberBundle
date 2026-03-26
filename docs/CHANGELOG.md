@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Table of contents
+
+- [Unreleased](#unreleased)
+  - [Changed](#changed)
+- [1.0.4 - 2026-03-13](#104---2026-03-13)
+  - [Fixed](#fixed)
+- [1.0.3 - 2026-03-13](#103---2026-03-13)
+  - [Added](#added)
+- [1.0.2 - 2026-03-13](#102---2026-03-13)
+  - [Added](#added-1)
+  - [Changed](#changed-1)
+- [1.0.1 - 2026-03-12](#101---2026-03-12)
+  - [Added](#added-1)
+  - [Fixed](#fixed-1)
+- [1.0.0 - 2026-03-12](#100---2026-03-12)
+  - [Added](#added-2)
+  - [Security](#security)
+
 ## [Unreleased]
 
 ### Changed

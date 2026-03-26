@@ -1,5 +1,18 @@
 # Security – SerialNumberBundle
 
+## Table of contents
+
+- [Summary](#summary)
+- [1. Risks addressed (fixed in code)](#1-risks-addressed-fixed-in-code)
+  - [1.1 DoS via `str_repeat` when masking](#11-dos-via-str_repeat-when-masking)
+  - [1.2 DoS via very long serial strings](#12-dos-via-very-long-serial-strings)
+  - [1.3 DoS via multi-character `mask_char`](#13-dos-via-multi-character-mask_char)
+  - [1.4 DoS via very large `idPadding`](#14-dos-via-very-large-idpadding)
+- [2. XSS and user-controlled data](#2-xss-and-user-controlled-data)
+- [3. Other aspects reviewed](#3-other-aspects-reviewed)
+- [4. Security-related tests](#4-security-related-tests)
+- [Release security checklist (12.4.1)](#release-security-checklist-1241)
+
 ## Summary
 
 The bundle **does not register HTTP routes or controllers**. It exposes a service (`SerialNumberGenerator`), a Twig extension (`serial_number`, `serial_number_mask`), and configuration. The attack surface is small.

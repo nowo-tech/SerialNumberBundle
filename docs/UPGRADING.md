@@ -1,5 +1,14 @@
 # Upgrading
 
+## Table of contents
+
+- [From 1.0.3 to 1.0.4](#from-103-to-104)
+- [From 1.0.2 to 1.0.3](#from-102-to-103)
+- [From 1.0.1 to 1.0.2](#from-101-to-102)
+- [From 1.0.0 to 1.0.1](#from-100-to-101)
+- [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
+  - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
 ## From 1.0.3 to 1.0.4
 
 No breaking changes. Demo Symfony 7 only: Composer audit config and routing file extensions (`.xml`) so the demo runs with Symfony 7.1.x and `composer update` / `cache:clear` succeed.

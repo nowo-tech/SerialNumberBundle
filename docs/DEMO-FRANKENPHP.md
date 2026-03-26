@@ -137,7 +137,7 @@ Each demo’s **docker-compose.yml** sets `APP_ENV=dev` and `APP_DEBUG=1`, and m
 - `./docker/frankenphp/Caddyfile.dev:/etc/frankenphp/Caddyfile.dev`
 - `./docker/php-dev.ini:/usr/local/etc/php/conf.d/99-dev.ini:ro`
 
-The entrypoint, when `APP_ENV=dev`, runs `cp /etc/frankenphp/Caddyfile.dev /etc/frankenphp/Caddyfile` before starting FrankenPHP. Default port is **8001** (see each demo’s `.env` or `PORT`).
+The entrypoint, when `APP_ENV=dev`, runs `cp /etc/frankenphp/Caddyfile.dev /etc/frankenphp/Caddyfile` before starting FrankenPHP. Default ports are **8007** for `demo/symfony7` and **8008** for `demo/symfony8` (see each demo’s `.env` or `PORT`).
 
 ### 5. Entrypoint (development-friendly)
 
@@ -149,10 +149,10 @@ From the bundle root:
 
 ```bash
 make -C demo/symfony8 up
-# → App ready at http://127.0.0.1:8001/ (or the PORT set in demo/symfony8/.env)
+# → App ready at http://127.0.0.1:8008/ (or the PORT set in demo/symfony8/.env)
 
 make -C demo/symfony7 up
-# → App ready at http://127.0.0.1:8001/
+# → App ready at http://127.0.0.1:8007/
 ```
 
 Or from inside the demo directory: `make up`. The Makefile runs `composer install` and `cache:clear` in one-off containers, then starts the stack and waits for the app to respond. After editing a Twig template or PHP file, refresh the browser; with worker mode off, Twig cache disabled and OPcache revalidating every request, changes should appear without restarting the container.
@@ -264,7 +264,7 @@ This gives you a reproducible development setup (changes visible on refresh) and
 
 ### Demo does not respond or "make up" times out
 
-- The Makefile runs `composer install` and `cache:clear` in one-off containers before starting the server, then waits for HTTP response on the configured port. Ensure the port in `.env` (e.g. `PORT=8001`) is free and that the container starts (check `docker-compose logs php`).
+- The Makefile runs `composer install` and `cache:clear` in one-off containers before starting the server, then waits for HTTP response on the configured port. Ensure the configured port is free (`PORT=8007` for Symfony 7, `PORT=8008` for Symfony 8) and that the container starts (check `docker-compose logs php`).
 - If the container exits, check that the entrypoint and Caddyfile are valid and that required env vars (e.g. `APP_SECRET`) are set.
 
 ### Production: slow first request or "cache cold"

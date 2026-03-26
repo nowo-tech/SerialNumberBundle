@@ -8,6 +8,8 @@
 [![Symfony](https://img.shields.io/badge/Symfony-6%20%7C%207%20%7C%208-000000?logo=symfony)](https://symfony.com)
 [![GitHub stars](https://img.shields.io/github/stars/nowo-tech/serial-number-bundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
 
+> ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
+
 Symfony bundle to generate and mask serial numbers for invoices, receipts, tickets, etc. Uses a pattern with placeholders (`{year}`, `{prefix}`, `{id}`), a context map, and an optional numeric id padding. Includes a Twig filter to mask the serial for display (e.g. show only last 4 digits).
 
 ## Features

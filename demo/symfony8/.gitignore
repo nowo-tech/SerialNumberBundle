@@ -1,25 +1,28 @@
+# Local environment (do not version local secrets)
 .env
 .env.dev
 .env.local
 .env.*.local
-.env.dev
-config/secrets/prod/prod.decrypt.private.php
-public/bundles/
-var/
-vendor/
-.phpunit.cache/
 
-###> symfony/framework-bundle ###
+# Symfony local environment files
 /.env.local
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
-###< symfony/framework-bundle ###
 
-###> phpunit/phpunit ###
-/phpunit.xml
+# Dependencies and build artifacts
+/vendor/
+/public/bundles/
+
+# Runtime cache and logs
+/var/
 /.phpunit.cache/
-###< phpunit/phpunit ###
+/phpunit.xml
+
+# Archives / compressed
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z

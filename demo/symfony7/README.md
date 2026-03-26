@@ -18,7 +18,7 @@ docker-compose up -d
 docker-compose exec php composer install --no-interaction
 ```
 
-Open http://localhost:8001 (or the `PORT` in `.env`).
+Open http://localhost:8007 (or the `PORT` in `.env`).
 
 ## Path repository
 
