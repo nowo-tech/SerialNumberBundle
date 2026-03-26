@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)](https://php.net)
 [![Symfony](https://img.shields.io/badge/Symfony-6%20%7C%207%20%7C%208-000000?logo=symfony)](https://symfony.com)
-[![GitHub stars](https://img.shields.io/github/stars/nowo-tech/serial-number-bundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle)
+[![GitHub stars](https://img.shields.io/github/stars/nowo-tech/serial-number-bundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
 
 Symfony bundle to generate and mask serial numbers for invoices, receipts, tickets, etc. Uses a pattern with placeholders (`{year}`, `{prefix}`, `{id}`), a context map, and an optional numeric id padding. Includes a Twig filter to mask the serial for display (e.g. show only last 4 digits).
 
@@ -38,10 +38,10 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 ```php
 // In a controller or service
 $serial = $this->serialNumberGenerator->generate(
-    ['prefix' => 'FAC', 'year' => 2025, 'office' => '01'],
-    '{prefix}-{year}-{office}-{id}',
-    42,
-    5  // id padding → 00042
+  ['prefix' => 'FAC', 'year' => 2025, 'office' => '01'],
+  '{prefix}-{year}-{office}-{id}',
+  42,
+  5 // id padding → 00042
 );
 // → "FAC-2025-01-00042"
 ```
@@ -49,10 +49,10 @@ $serial = $this->serialNumberGenerator->generate(
 ```twig
 {# Generate and mask in Twig #}
 {{ serial_number(
-    { prefix: 'FAC', year: 2025, office: '01' },
-    '{prefix}-{year}-{office}-{id}',
-    invoice.id,
-    5
+  { prefix: 'FAC', year: 2025, office: '01' },
+  '{prefix}-{year}-{office}-{id}',
+  invoice.id,
+  5
 )|serial_number_mask(4) }}
 {# → "*************0042" #}
 ```
@@ -62,6 +62,11 @@ $serial = $this->serialNumberGenerator->generate(
 - PHP >= 8.1, < 8.6
 - Symfony 6.0 | 7.0 | 8.0
 - Twig 3.8+ or 4.x
+
+## Tests and coverage
+
+- Tests: PHPUnit (PHP)
+- PHP: 100%
 
 ## License
 
