@@ -1,0 +1,8 @@
+# Scrutinizer: the default build image (Trusty) ships OpenSSL 1.0.1f, which cannot satisfy
+# PHP 8.2's configure requirement (openssl >= 1.0.2). Use a newer base image so PHP can compile.
+# See: https://scrutinizer-ci.com/docs/guides/upgrading-trusty-image
+build:
+    image: default-bionic
+    environment:
+        php:
+            version: "8.2.0"
