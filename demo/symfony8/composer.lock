@@ -105,7 +105,7 @@
                 }
             ],
             "description": "Generate and mask serial numbers for invoices, receipts, etc. Pattern-based with context and Twig filter.",
-            "homepage": "https://github.com/nowo-tech/serial-number-bundle",
+            "homepage": "https://github.com/nowo-tech/SerialNumberBundle",
             "keywords": [
                 "bundle",
                 "invoice",
@@ -117,10 +117,10 @@
                 "twig"
             ],
             "support": {
-                "issues": "https://github.com/nowo-tech/serial-number-bundle/issues",
-                "source": "https://github.com/nowo-tech/serial-number-bundle",
-                "docs": "https://github.com/nowo-tech/serial-number-bundle/tree/main/docs",
-                "changelog": "https://github.com/nowo-tech/serial-number-bundle/blob/main/docs/CHANGELOG.md"
+                "issues": "https://github.com/nowo-tech/SerialNumberBundle/issues",
+                "source": "https://github.com/nowo-tech/SerialNumberBundle",
+                "docs": "https://github.com/nowo-tech/SerialNumberBundle/tree/main/docs",
+                "changelog": "https://github.com/nowo-tech/SerialNumberBundle/blob/main/docs/CHANGELOG.md"
             },
             "transport-options": {
                 "relative": false

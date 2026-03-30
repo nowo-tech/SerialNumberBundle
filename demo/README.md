@@ -1,13 +1,13 @@
 # Serial Number Bundle – Demos
 
-Demos for [nowo-tech/serial-number-bundle](https://github.com/nowo-tech/serial-number-bundle) on Symfony 7 and 8.
+Demos for Composer package [nowo-tech/serial-number-bundle](https://packagist.org/packages/nowo-tech/serial-number-bundle) ([source on GitHub](https://github.com/nowo-tech/SerialNumberBundle)) on Symfony 7 and 8.
 
 ## Demos
 
-| Demo        | Symfony | Port (default) |
-|------------|---------|----------------|
-| symfony7   | 7.0     | 8001           |
-| symfony8   | 8.0     | 8001           |
+| Demo        | Symfony | Port (default in `.env.example`) |
+|------------|---------|----------------------------------|
+| symfony7   | 7.0     | 8007                             |
+| symfony8   | 8.0     | 8008                             |
 
 ## Quick start (from bundle root)
 
@@ -19,7 +19,7 @@ make -C demo up-symfony8
 make -C demo up-symfony7
 ```
 
-Then open http://localhost:8001 (or the `PORT` in the demo’s `.env`).
+Then open `http://localhost:<PORT>` (e.g. http://localhost:8008 for Symfony 8, or the `PORT` in the demo’s `.env`).
 
 ## Path repository
 

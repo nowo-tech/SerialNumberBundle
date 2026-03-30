@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)](https://php.net)
 [![Symfony](https://img.shields.io/badge/Symfony-6%20%7C%207%20%7C%208-000000?logo=symfony)](https://symfony.com)
-[![GitHub stars](https://img.shields.io/github/stars/nowo-tech/serial-number-bundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
+[![GitHub stars](https://img.shields.io/github/stars/nowo-tech/SerialNumberBundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
 
@@ -69,6 +69,12 @@ $serial = $this->serialNumberGenerator->generate(
 
 - Tests: PHPUnit (PHP)
 - PHP: 100%
+
+## Version policy
+
+The Composer package name is [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle). Source code and issues are in the GitHub repository [`nowo-tech/SerialNumberBundle`](https://github.com/nowo-tech/SerialNumberBundle).
+
+We follow [Semantic Versioning](https://semver.org/). See [Changelog](docs/CHANGELOG.md) for release notes. Security support by major version is described in the [Security policy](.github/SECURITY.md#supported-versions).
 
 ## License
 

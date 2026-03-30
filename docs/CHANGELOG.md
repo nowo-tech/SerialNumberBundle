@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.5 - 2026-03-30](#105---2026-03-30)
   - [Changed](#changed)
 - [1.0.4 - 2026-03-13](#104---2026-03-13)
   - [Fixed](#fixed)
@@ -16,17 +17,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Added](#added-1)
   - [Changed](#changed-1)
 - [1.0.1 - 2026-03-12](#101---2026-03-12)
-  - [Added](#added-1)
+  - [Added](#added-2)
   - [Fixed](#fixed-1)
 - [1.0.0 - 2026-03-12](#100---2026-03-12)
-  - [Added](#added-2)
+  - [Added](#added-3)
   - [Security](#security)
 
 ## [Unreleased]
 
+## [1.0.5] - 2026-03-30
+
 ### Changed
 
-- **Documentation**: Corrected mask examples in README and USAGE (last four characters of `FAC-2025-01-00042` are `0042`). README requirements aligned with `composer.json` (PHP `< 8.6`). Makefile `help` lists `release-check-demos` as part of `release-check`. **DEMO-FRANKENPHP.md**: demo `bundles.php` example includes Twig Inspector (as in the repo demos). **SECURITY.md** rewritten in English to match the rest of the docs.
+- **Documentation and metadata:** GitHub URLs now use the real repository slug `nowo-tech/SerialNumberBundle` (the previous `nowo-tech/serial-number-bundle` path returned 404). The Composer package name remains `nowo-tech/serial-number-bundle`. Updated root `composer.json` (`homepage`, `support.*`) and demo `composer.lock` metadata for the path package.
+- **README:** Added [Version policy](https://github.com/nowo-tech/SerialNumberBundle#version-policy) (package name vs repo, SemVer, links to changelog and security policy). GitHub stars badge uses the correct repo slug.
+- **Demos:** `demo/README.md` default ports aligned with `.env.example` (Symfony 7 → 8007, Symfony 8 → 8008). [DEMO-FRANKENPHP.md](DEMO-FRANKENPHP.md) port section updated to match.
+- **Bug report template:** Links to version policy and security policy instead of a non-existent `#version-information` anchor.
+- **Documentation (carry-over from pre-release notes):** Mask examples in README/USAGE; README PHP constraint aligned with `composer.json` (`< 8.6`); Makefile `help` documents `release-check-demos` under `release-check`; DEMO-FRANKENPHP `bundles.php` example includes Twig Inspector; SECURITY.md in English.
 
 ## [1.0.4] - 2026-03-13
 
@@ -79,9 +86,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/serial-number-bundle/compare/v1.0.4...HEAD
-[1.0.4]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.4
-[1.0.3]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.3
-[1.0.2]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.2
-[1.0.1]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.1
-[1.0.0]: https://github.com/nowo-tech/serial-number-bundle/releases/tag/v1.0.0
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.5
+[1.0.4]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.4
+[1.0.3]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.3
+[1.0.2]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.2
+[1.0.1]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.1
+[1.0.0]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.0

@@ -38,7 +38,7 @@ The main difference between development and production is:
 | Symfony cache on startup | Cleared in Makefile before `up` | Not cleared (or warmup only) |
 | `APP_ENV` / `APP_DEBUG` | `dev` / `1` | `prod` / `0` |
 
-**Ports:** Each demo uses `PORT` from its `.env` (default **8001**). To run multiple demos at once, set a different `PORT` per demo (e.g. 8007 for symfony7, 8008 for symfony8) as per the bundle standard protocol.
+**Ports:** Each demo uses `PORT` from its `.env`. The checked-in `.env.example` uses **8007** for `demo/symfony7` and **8008** for `demo/symfony8` so both can run side by side. You may set any free port (e.g. `8001`) if you run a single demo.
 
 ---
 

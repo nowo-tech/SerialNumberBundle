@@ -2,12 +2,17 @@
 
 ## Table of contents
 
+- [From 1.0.4 to 1.0.5](#from-104-to-105)
 - [From 1.0.3 to 1.0.4](#from-103-to-104)
 - [From 1.0.2 to 1.0.3](#from-102-to-103)
 - [From 1.0.1 to 1.0.2](#from-101-to-102)
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.4 to 1.0.5
+
+No breaking changes. Documentation and repository metadata only: correct GitHub URLs (`nowo-tech/SerialNumberBundle`), demo default ports in docs (8007 / 8008 per `.env.example`), README version policy, and bug-report template links. The Composer package name is still `nowo-tech/serial-number-bundle`.
 
 ## From 1.0.3 to 1.0.4
 
