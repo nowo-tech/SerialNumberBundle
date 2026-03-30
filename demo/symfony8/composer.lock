@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/serial-number-bundle",
-                "reference": "e32b3201666912e2e728dc8efad4d5e4f18d4f2d"
+                "reference": "2ea9a2a112b16b7b8dc33e2a67002b2f4707ead2"
             },
             "require": {
                 "php": ">=8.1 <8.6",
@@ -52,7 +52,7 @@
             },
             "scripts": {
                 "test": [
-                    "phpunit"
+                    "phpunit --colors=always"
                 ],
                 "test-unit": [
                     "phpunit --testsuite=Unit"
@@ -61,7 +61,7 @@
                     "phpunit --testsuite=Integration"
                 ],
                 "test-coverage": [
-                    "phpunit --coverage-html coverage --coverage-clover coverage.xml --coverage-text"
+                    "phpunit --colors=always --coverage-html coverage --coverage-clover coverage.xml --coverage-text"
                 ],
                 "cs-check": [
                     "php-cs-fixer fix --dry-run --diff"
@@ -3145,16 +3145,16 @@
         },
         {
             "name": "nowo-tech/twig-inspector-bundle",
-            "version": "v1.0.25",
+            "version": "v1.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nowo-tech/TwigInspectorBundle.git",
-                "reference": "152d8a1727fbd57dec1b9d6abea7e3c165692c14"
+                "reference": "fe938f8e17c317a83de00e354eb72a94fc4aaba7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/152d8a1727fbd57dec1b9d6abea7e3c165692c14",
-                "reference": "152d8a1727fbd57dec1b9d6abea7e3c165692c14",
+                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/fe938f8e17c317a83de00e354eb72a94fc4aaba7",
+                "reference": "fe938f8e17c317a83de00e354eb72a94fc4aaba7",
                 "shasum": ""
             },
             "require": {
@@ -3243,7 +3243,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-19T07:20:27+00:00"
+            "time": "2026-03-30T05:25:12+00:00"
         },
         {
             "name": "phar-io/manifest",
