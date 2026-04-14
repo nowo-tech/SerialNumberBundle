@@ -7,7 +7,7 @@ services:
     container_name: serial-number-symfony7-php
     working_dir: /app
     ports:
-      - "${PORT:-8001}:80"
+      - "${PORT:-8007}:80"
     volumes:
       - .:/app
       - ../..:/var/serial-number-bundle

@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.5 to 1.0.6](#from-105-to-106)
 - [From 1.0.4 to 1.0.5](#from-104-to-105)
 - [From 1.0.3 to 1.0.4](#from-103-to-104)
 - [From 1.0.2 to 1.0.3](#from-102-to-103)
@@ -9,6 +10,14 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.5 to 1.0.6
+
+No breaking changes to the bundle API or configuration.
+
+- **Symfony 8 demo (Docker):** Rebuild the FrankenPHP image after upgrading (`docker compose build` in `demo/symfony8`) so `ext-intl` and PCOV are available. The demo replaces the intl polyfills in `composer.json`; **do not** run that demo’s `composer install` on a host PHP without `ext-intl` unless you remove those `replace` entries (the Docker image is the supported path).
+- **Docker Compose default host ports:** If you start a demo **without** a `.env` file, Symfony 7 now publishes **8007** and Symfony 8 **8008** by default (same as each `.env.example`). If you relied on the old implicit default **8001** for both, set `PORT` explicitly in `.env`.
+- **CI / maintainers:** `make release-check` expects demo functional tests and coverage; see [CHANGELOG](CHANGELOG.md) for PHPUnit and PCOV updates.
 
 ## From 1.0.4 to 1.0.5
 

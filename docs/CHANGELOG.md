@@ -7,23 +7,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
-- [1.0.5 - 2026-03-30](#105---2026-03-30)
+- [1.0.6 - 2026-04-14](#106---2026-04-14)
+  - [Added](#added)
   - [Changed](#changed)
+- [1.0.5 - 2026-03-30](#105---2026-03-30)
+  - [Changed](#changed-1)
 - [1.0.4 - 2026-03-13](#104---2026-03-13)
   - [Fixed](#fixed)
 - [1.0.3 - 2026-03-13](#103---2026-03-13)
-  - [Added](#added)
-- [1.0.2 - 2026-03-13](#102---2026-03-13)
   - [Added](#added-1)
-  - [Changed](#changed-1)
-- [1.0.1 - 2026-03-12](#101---2026-03-12)
+- [1.0.2 - 2026-03-13](#102---2026-03-13)
   - [Added](#added-2)
+  - [Changed](#changed-2)
+- [1.0.1 - 2026-03-12](#101---2026-03-12)
+  - [Added](#added-3)
   - [Fixed](#fixed-1)
 - [1.0.0 - 2026-03-12](#100---2026-03-12)
-  - [Added](#added-3)
+  - [Added](#added-4)
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.6] - 2026-04-14
+
+### Added
+
+- **Repository tooling:** `.cursorignore`, Cursor rules under `.cursor/rules/`, Dependabot, scheduled stale issue workflow, optional PR title lint workflow, `FUNDING.yml`, and Copilot instructions for contributors.
+- **Demos (FrankenPHP images):** PCOV extension so `composer test-coverage` works inside the Symfony 7 and 8 demo containers.
+- **Demos:** `config/packages/test/framework.yaml` with `framework.test: true` for functional tests; PHPUnit `<source>` / `<coverage>` configuration aligned with the bundle layout; `KERNEL_CLASS` / `APP_ENV` for the test kernel (`phpunit.xml.dist` and `tests/bootstrap.php`).
+
+### Changed
+
+- **Bundle (dev):** Refreshed root `composer.lock` for development dependencies.
+- **Scrutinizer-CI:** PHP 8.2 build, exclude `demo/*` and `tests/*` from analysis, and align install/coverage with the bundle (see `.scrutinizer.yml`).
+- **Demo Symfony 8:** Docker image installs `ext-intl`; demo `composer.json` replaces `symfony/polyfill-intl-normalizer` and `symfony/polyfill-intl-grapheme` (native intl in the container). `docker-compose`: extra DNS resolvers, `mem_limit`, Composer memory/parallelism env vars; Dockerfile entrypoint retries `composer install --prefer-dist`; Makefile uses `--prefer-dist` and the same Composer env vars; updated `composer.lock`.
+- **Demo Symfony 7:** `docker-compose` DNS entries for Docker/WSL resolution issues; default published port in Compose when `PORT` is unset is **8007** (matches `.env.example`); updated `composer.lock`.
+- **Demo Symfony 8:** Default published port in Compose when `PORT` is unset is **8008** (matches `.env.example`).
+- **Demos:** PHPUnit `failOnRisky="false"` and `failOnWarning="false"` so Symfony’s functional test harness does not fail `make release-check` on benign risky-handler notices (coverage is still generated).
 
 ## [1.0.5] - 2026-03-30
 
@@ -86,7 +106,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...HEAD
+[1.0.6]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.5
 [1.0.4]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.4
 [1.0.3]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.3

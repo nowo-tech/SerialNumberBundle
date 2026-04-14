@@ -17,7 +17,10 @@
 # Runtime cache and logs
 /var/
 /.phpunit.cache/
+/.phpunit.result.cache
 /phpunit.xml
+/coverage/
+/coverage.xml
 
 # Archives / compressed
 *.zip
