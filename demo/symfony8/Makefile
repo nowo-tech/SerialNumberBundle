@@ -24,7 +24,7 @@ up:
 	@echo "Waiting for container to be ready..."
 	@sleep 5
 	@echo "Installing dependencies..."
-	@docker-compose exec -T -e COMPOSER_MEMORY_LIMIT=-1 php composer install --no-interaction
+	@docker-compose exec -T -e COMPOSER_MEMORY_LIMIT=-1 -e COMPOSER_MAX_PARALLEL_HTTP=4 php composer install --no-interaction --prefer-dist
 	@PORT=$$(grep "^PORT=" .env 2>/dev/null | cut -d= -f2 | tr -d '\r'); \
 	[ -z "$$PORT" ] && PORT=$$(grep "^PORT=" .env.example 2>/dev/null | cut -d= -f2 | tr -d '\r'); \
 	echo "Demo started at: http://localhost:$$PORT"
@@ -44,7 +44,7 @@ ensure-up:
 	fi
 
 install: ensure-up
-	docker-compose exec -T -e COMPOSER_MEMORY_LIMIT=-1 php composer install --no-interaction
+	docker-compose exec -T -e COMPOSER_MEMORY_LIMIT=-1 -e COMPOSER_MAX_PARALLEL_HTTP=4 php composer install --no-interaction --prefer-dist
 
 shell: ensure-up
 	docker-compose exec php sh

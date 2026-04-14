@@ -16,9 +16,19 @@ services:
       - composer-cache:/root/.composer/cache
     environment:
       - COMPOSER_ALLOW_SUPERUSER=1
+      - COMPOSER_MEMORY_LIMIT=-1
+      # Fewer parallel HTTP/git operations when dist fails → less RAM (avoids OOM / exit 137 on WSL).
+      - COMPOSER_MAX_PARALLEL_HTTP=4
       - APP_ENV=dev
       - APP_DEBUG=1
       - APP_SECRET=${APP_SECRET:-demo-secret}
+    # Mitigate Docker/WSL DNS failures (composer curl error 6: Could not resolve host).
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+      - 1.1.1.1
+      - 1.0.0.1
+    mem_limit: 2g
     networks:
       - serial-number-demo-network
 
