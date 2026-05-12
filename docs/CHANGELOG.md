@@ -7,18 +7,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.7 - 2026-05-12](#107---2026-05-12)
+  - [Changed](#changed)
 - [1.0.6 - 2026-04-14](#106---2026-04-14)
   - [Added](#added)
-  - [Changed](#changed)
-- [1.0.5 - 2026-03-30](#105---2026-03-30)
   - [Changed](#changed-1)
+- [1.0.5 - 2026-03-30](#105---2026-03-30)
+  - [Changed](#changed-2)
 - [1.0.4 - 2026-03-13](#104---2026-03-13)
   - [Fixed](#fixed)
 - [1.0.3 - 2026-03-13](#103---2026-03-13)
   - [Added](#added-1)
 - [1.0.2 - 2026-03-13](#102---2026-03-13)
   - [Added](#added-2)
-  - [Changed](#changed-2)
+  - [Changed](#changed-3)
 - [1.0.1 - 2026-03-12](#101---2026-03-12)
   - [Added](#added-3)
   - [Fixed](#fixed-1)
@@ -27,6 +29,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.7] - 2026-05-12
+
+### Changed
+
+- **Demos:** Refreshed `demo/symfony7/composer.lock` and `demo/symfony8/composer.lock` (Symfony 8.x patch bumps, contracts, and path package reference for `nowo-tech/serial-number-bundle` aligned with the current tree). Regenerated `demo/symfony8/config/reference.php` (Symfony Flex defaults).
 
 ## [1.0.6] - 2026-04-14
 
@@ -106,7 +114,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...HEAD
+[1.0.7]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.5
 [1.0.4]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.4

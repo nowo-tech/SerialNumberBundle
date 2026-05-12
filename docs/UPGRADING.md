@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.6 to 1.0.7](#from-106-to-107)
 - [From 1.0.5 to 1.0.6](#from-105-to-106)
 - [From 1.0.4 to 1.0.5](#from-104-to-105)
 - [From 1.0.3 to 1.0.4](#from-103-to-104)
@@ -10,6 +11,10 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.6 to 1.0.7
+
+No breaking changes to the bundle API or configuration. Demo-only: updated Composer lock files and the auto-generated Symfony 8 `config/reference.php` after dependency refresh. If you use the demos from Git, run `composer install` in each demo directory (or `make install` / `make up`) after pulling.
 
 ## From 1.0.5 to 1.0.6
 
