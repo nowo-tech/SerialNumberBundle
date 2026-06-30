@@ -1,4 +1,4 @@
-# FrankenPHP - PHP 8.5 Alpine (Symfony 8.0 requires PHP >= 8.4)
+# FrankenPHP - PHP 8.5 Alpine (Symfony 8.1 requires PHP >= 8.4)
 FROM dunglas/frankenphp:1-php8.5-alpine
 
 RUN apk add --no-cache git unzip bash

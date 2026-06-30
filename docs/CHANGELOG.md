@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.8 - 2026-06-30](#108---2026-06-30)
+  - [Added](#added)
+  - [Changed](#changed)
 - [1.0.7 - 2026-05-12](#107---2026-05-12)
   - [Changed](#changed)
 - [1.0.6 - 2026-04-14](#106---2026-04-14)
@@ -29,6 +32,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.8] - 2026-06-30
+
+### Added
+
+- **Documentation:** [SPEC-DRIVEN-DEVELOPMENT.md](SPEC-DRIVEN-DEVELOPMENT.md) — product scope, user stories, and `REQ-*` traceability for Makefiles and demos. Linked from README and [ENGRAM.md](ENGRAM.md).
+- **Repository tooling:** CodeRabbit configuration (`.coderabbit.yaml`, `.github/workflows/coderabbit.yml`).
+- **Makefile:** `update-deps` target (bundle + demos) via shared `Makefile.update-deps.mk` (`REQ-MAKE-008`).
+
+### Changed
+
+- **CI:** PHPUnit matrix now runs across PHP 8.1–8.5 and Symfony **6.4**, **7.0**, **7.4**, **8.0**, and **8.1** (`REQ-SF-002`); coverage job uses PHP 8.2 + Symfony 7.4.
+- **Bundle (dev):** Refreshed root `composer.lock` (Symfony 7.4.14, Twig 3.27.1, PHPStan 2.2.2, Rector 2.5.2, and related dev dependencies).
+- **Demos:** Symfony 7 demo pinned to **7.4.*** (was 7.0.*); Symfony 8 demo pinned to **8.1.*** (was 8.0.*). Demo READMEs, Makefile headers, and in-app version badges updated accordingly.
+- **README:** Symfony compatibility badge aligned with CI/demo minors; link to spec-driven development doc.
 
 ## [1.0.7] - 2026-05-12
 
@@ -114,7 +132,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.5

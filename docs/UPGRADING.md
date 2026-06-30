@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.7 to 1.0.8](#from-107-to-108)
 - [From 1.0.6 to 1.0.7](#from-106-to-107)
 - [From 1.0.5 to 1.0.6](#from-105-to-106)
 - [From 1.0.4 to 1.0.5](#from-104-to-105)
@@ -11,6 +12,13 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.7 to 1.0.8
+
+No breaking changes to the bundle API or configuration.
+
+- **Demos:** Symfony 7 demo requires **7.4.***; Symfony 8 demo requires **8.1.***. After pulling, run `composer update` in each demo directory, or from the bundle root run `make update-deps` (Docker) to refresh the bundle and both demos.
+- **Maintainers:** CI now tests Symfony 6.4, 7.0, 7.4, 8.0, and 8.1 across PHP 8.1–8.5. Use `make update-deps` instead of ad-hoc `composer update` when refreshing locks.
 
 ## From 1.0.6 to 1.0.7
 

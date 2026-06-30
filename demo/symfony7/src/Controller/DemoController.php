@@ -58,7 +58,7 @@ class DemoController extends AbstractController
         $ex3Serial  = $this->serialNumberGenerator->generate($ex3Context, $ex3Pattern, $ex3Id, 4);
 
         return $this->render('demo/home.html.twig', [
-            'version_badge' => 'Symfony 7.0',
+            'version_badge' => 'Symfony 7.4',
             'examples'      => [
                 [
                     'name'    => 'FA + RI + year + id (numeric)',
