@@ -6,8 +6,8 @@ Demos for Composer package [nowo-tech/serial-number-bundle](https://packagist.or
 
 | Demo        | Symfony | Port (default in `.env.example`) |
 |------------|---------|----------------------------------|
-| symfony7   | 7.0     | 8007                             |
-| symfony8   | 8.0     | 8008                             |
+| symfony7   | 7.4     | 8007                             |
+| symfony8   | 8.1     | 8008                             |
 
 ## Quick start (from bundle root)
 

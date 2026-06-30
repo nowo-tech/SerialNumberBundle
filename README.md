@@ -5,8 +5,7 @@
 [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)](https://php.net)
-[![Symfony](https://img.shields.io/badge/Symfony-6%20%7C%207%20%7C%208-000000?logo=symfony)](https://symfony.com)
-[![GitHub stars](https://img.shields.io/github/stars/nowo-tech/SerialNumberBundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
+[![Symfony](https://img.shields.io/badge/Symfony-6.0%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
 
@@ -29,6 +28,7 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 - [Release](docs/RELEASE.md)
 - [Security](docs/SECURITY.md)
 - [Engram](docs/ENGRAM.md)
+- [Spec-driven development](docs/SPEC-DRIVEN-DEVELOPMENT.md)
 
 ### Additional documentation
 
@@ -62,7 +62,7 @@ $serial = $this->serialNumberGenerator->generate(
 ## Requirements
 
 - PHP >= 8.1, < 8.6
-- Symfony 6.0 | 7.0 | 8.0
+- Symfony 6.0, 7.0, or 8.0 (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
 - Twig 3.8+ or 4.x
 
 ## Tests and coverage

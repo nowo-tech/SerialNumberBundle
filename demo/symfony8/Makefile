@@ -1,9 +1,9 @@
-# Makefile for Symfony 8.0 Demo (Serial Number Bundle)
+# Makefile for Symfony 8.1 Demo (Serial Number Bundle)
 
 .PHONY: help up down build install shell logs test test-coverage cache-clear update-bundle ensure-up verify
 
 help:
-	@echo "Serial Number Bundle - Symfony 8.0 Demo"
+	@echo "Serial Number Bundle - Symfony 8.1 Demo"
 	@echo ""
 	@echo "  make up             Start containers"
 	@echo "  make down            Stop containers"
@@ -72,3 +72,10 @@ verify:
 	docker-compose up -d 2>/dev/null; sleep 8; \
 	code=$$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:$$port 2>/dev/null || echo "000"); \
 	if [ "$$code" = "200" ]; then echo "OK (HTTP $$code)"; else echo "Failed (HTTP $$code)"; exit 1; fi
+
+
+# REQ-MAKE-008: update-deps (REQ-MAKE-008)
+COMPOSE := docker-compose
+SERVICE_PHP := php
+BUNDLE_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../..)
+include $(BUNDLE_ROOT)/../.scripts/Makefile.demo-update-deps.mk

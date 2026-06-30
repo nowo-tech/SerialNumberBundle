@@ -31,6 +31,7 @@ help:
 	@echo "  composer-sync Validate composer.json and align composer.lock (no install)"
 	@echo "  clean         Remove vendor and cache"
 	@echo "  update        Update composer.lock (composer update)"
+	@echo "  update-deps   Update bundle and demo Composer locks (Docker)"
 	@echo "  validate      Run composer validate --strict"
 	@echo ""
 	@echo "Demos (Symfony 7/8): make -C demo help"
@@ -109,3 +110,8 @@ clean: ensure-up
 
 assets:
 	@echo "No frontend assets in this bundle."
+
+
+# REQ-MAKE-008: update-deps (REQ-MAKE-008)
+BUNDLE_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
+include $(BUNDLE_ROOT)/../.scripts/Makefile.update-deps.mk

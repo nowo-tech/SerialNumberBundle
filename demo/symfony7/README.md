@@ -1,6 +1,6 @@
 # Serial Number Bundle - Symfony 7 Demo
 
-Demo application for [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle) ([GitHub](https://github.com/nowo-tech/SerialNumberBundle)) on Symfony 7.0.
+Demo application for [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle) ([GitHub](https://github.com/nowo-tech/SerialNumberBundle)) on Symfony 7.4.
 
 ## Quick start
 
