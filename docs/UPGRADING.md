@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.8 to 1.0.9](#from-108-to-109)
 - [From 1.0.7 to 1.0.8](#from-107-to-108)
 - [From 1.0.6 to 1.0.7](#from-106-to-107)
 - [From 1.0.5 to 1.0.6](#from-105-to-106)
@@ -12,6 +13,14 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.8 to 1.0.9
+
+No breaking changes to the bundle API or configuration.
+
+- **Documentation only for integrators:** New GitHub Spec Kit baseline and maintainer docs ([SPEC-KIT.md](SPEC-KIT.md), [`specs/001-baseline/`](../specs/001-baseline/)). No application code or config changes required to upgrade from Packagist.
+- **Demo Symfony 7 (Docker):** Rebuild the FrankenPHP image after pulling (`docker compose build` in `demo/symfony7`) so `ext-intl` is available, matching the Symfony 8 demo.
+- **Maintainers:** When changing production code under `src/`, update [`specs/001-baseline/spec.md`](../specs/001-baseline/spec.md) and [`code-inventory.md`](../specs/001-baseline/code-inventory.md) per [SPEC-KIT.md](SPEC-KIT.md).
 
 ## From 1.0.7 to 1.0.8
 

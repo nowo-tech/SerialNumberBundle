@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.9 - 2026-07-09](#109---2026-07-09)
+  - [Added](#added)
+  - [Changed](#changed)
 - [1.0.8 - 2026-06-30](#108---2026-06-30)
   - [Added](#added)
   - [Changed](#changed)
@@ -32,6 +35,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.9] - 2026-07-09
+
+### Added
+
+- **GitHub Spec Kit:** Initialized [GitHub Spec Kit](https://github.com/github/spec-kit) with `.specify/`, Cursor Agent skills under `.cursor/skills/speckit-*`, and baseline feature [`specs/001-baseline/`](../specs/001-baseline/) (`spec.md`, `code-inventory.md` mapping **100%** of production code in `src/`).
+- **Documentation:** [SPEC-KIT.md](SPEC-KIT.md) — install, initialize, folder layout, Cursor skills, and maintainer checklist for Spec Kit.
+
+### Changed
+
+- **Documentation:** [SPEC-DRIVEN-DEVELOPMENT.md](SPEC-DRIVEN-DEVELOPMENT.md) — three-layer model (Spec Kit baseline, product behavior, `REQ-*` traceability); user stories aligned with serial generation and masking; maintainer workflow to keep `specs/001-baseline/` in sync when `src/` changes. Linked from README.
+- **Bundle (dev):** Refreshed root `composer.lock` (Twig 3.28.0, PHPStan 2.2.5, Rector 2.5.4, PHPUnit 10.5.64, PHP-CS-Fixer 3.95.12, and related dev dependencies).
+- **Demo Symfony 7:** FrankenPHP image installs `ext-intl` (same as the Symfony 8 demo) for parity with intl-dependent Symfony packages.
+- **Demos:** Refreshed `demo/symfony7/composer.lock` and `demo/symfony8/composer.lock`.
 
 ## [1.0.8] - 2026-06-30
 
@@ -132,7 +149,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...HEAD
+[1.0.9]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.5...v1.0.6

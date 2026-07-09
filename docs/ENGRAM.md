@@ -1,6 +1,6 @@
 # Engram
 
-Repository-local **product spec** and **`REQ-*`** traceability (Makefiles, demos) are described in [Spec-driven development](SPEC-DRIVEN-DEVELOPMENT.md).
+Repository-local **product spec**, **GitHub Spec Kit** ([SPEC-KIT.md](SPEC-KIT.md)), and **`REQ-*`** traceability (Makefiles, demos) are described in [Spec-driven development](SPEC-DRIVEN-DEVELOPMENT.md).
 
 This repository is prepared for use with [Engram](https://github.com/nowo-tech/engram) (MCP). The project context and conventions are documented in the repo so that AI assistants can follow the same standards when contributing.
 
