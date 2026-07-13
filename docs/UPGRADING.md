@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.9 to 1.0.10](#from-109-to-1010)
 - [From 1.0.8 to 1.0.9](#from-108-to-109)
 - [From 1.0.7 to 1.0.8](#from-107-to-108)
 - [From 1.0.6 to 1.0.7](#from-106-to-107)
@@ -13,6 +14,10 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.9 to 1.0.10
+
+No breaking changes to the bundle API or configuration. Dev-dependency lock refresh and demo Symfony 7 lock alignment only. Integrators upgrading from Packagist need no code or config changes.
 
 ## From 1.0.8 to 1.0.9
 
