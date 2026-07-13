@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.10 - 2026-07-13](#1010---2026-07-13)
+  - [Changed](#changed)
 - [1.0.9 - 2026-07-09](#109---2026-07-09)
   - [Added](#added)
   - [Changed](#changed)
@@ -35,6 +37,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.10] - 2026-07-13
+
+### Changed
+
+- **Repository:** Ignore machine-local `.cursor/sandbox.json` in `.gitignore` (`REQ-IDE-005`).
+- **Bundle (dev):** Refreshed root `composer.lock` (PHP-CS-Fixer 3.95.13, Rector 2.5.6).
+- **Demo Symfony 7:** Updated `composer.lock` (path package reference aligned with current tree; `nowo-tech/twig-inspector-bundle` v1.0.35).
 
 ## [1.0.9] - 2026-07-09
 
@@ -149,7 +159,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.10...HEAD
+[1.0.10]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.6...v1.0.7
