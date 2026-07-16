@@ -7,8 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
-- [1.0.10 - 2026-07-13](#1010---2026-07-13)
+- [1.0.11 - 2026-07-16](#1011---2026-07-16)
+  - [Added](#added)
   - [Changed](#changed)
+- [1.0.10 - 2026-07-13](#1010---2026-07-13)
+  - [Changed](#changed-1)
 - [1.0.9 - 2026-07-09](#109---2026-07-09)
   - [Added](#added)
   - [Changed](#changed)
@@ -37,6 +40,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.11] - 2026-07-16
+
+### Added
+
+- **Community:** [Contributor Covenant Code of Conduct](../CODE_OF_CONDUCT.md); linked from README and [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Git hygiene (REQ-GIT-001):** Scripts `.scripts/check-no-cursor-coauthor.sh` and `.scripts/strip-cursor-coauthor-from-history.sh`; `.githooks/commit-msg`; Cursor rule `.cursor/rules/01-git-commits.mdc`; Makefile targets `setup-hooks`, `check-no-cursor-coauthor`, and `strip-cursor-coauthor-from-history`.
+- **CI:** `git-hygiene` job in `.github/workflows/ci.yml` rejects Cursor co-author trailers in history.
+- **Documentation:** [GITHUB_CI.md](GITHUB_CI.md) — REQ-GIT-001 adoption checklist and operator reference.
+
+### Changed
+
+- **Release tooling:** `make release-check` runs `check-no-cursor-coauthor` first; [RELEASE.md](RELEASE.md) reminds maintainers to re-check before push.
+- **Bundle (dev):** Refreshed root `composer.lock` (PHP-CS-Fixer 3.95.15, Rector 2.5.7).
 
 ## [1.0.10] - 2026-07-13
 
@@ -159,7 +176,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.10...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.11...HEAD
+[1.0.11]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.7...v1.0.8

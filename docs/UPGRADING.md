@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.10 to 1.0.11](#from-1010-to-1011)
 - [From 1.0.9 to 1.0.10](#from-109-to-1010)
 - [From 1.0.8 to 1.0.9](#from-108-to-109)
 - [From 1.0.7 to 1.0.8](#from-107-to-108)
@@ -14,6 +15,13 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.10 to 1.0.11
+
+No breaking changes to the bundle API or configuration.
+
+- **Integrators:** No application code or config changes required to upgrade from Packagist.
+- **Contributors / maintainers:** Run `make setup-hooks` once per clone. Commit messages must not include Cursor co-author trailers (`REQ-GIT-001`); see [GITHUB_CI.md](GITHUB_CI.md) and [CONTRIBUTING.md](CONTRIBUTING.md). Participants are expected to follow the [Code of Conduct](../CODE_OF_CONDUCT.md).
 
 ## From 1.0.9 to 1.0.10
 

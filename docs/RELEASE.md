@@ -5,7 +5,7 @@ Maintainers: follow this checklist before creating a new tag.
 ## Pre-release checklist
 
 1. **Update version and docs**
-   - Ensure [CHANGELOG.md](CHANGELOG.md) has an entry for the new version (e.g. `[1.0.10] - YYYY-MM-DD`) and that `[Unreleased]` is updated or empty.
+   - Ensure [CHANGELOG.md](CHANGELOG.md) has an entry for the new version (e.g. `[1.0.11] - YYYY-MM-DD`) and that `[Unreleased]` is updated or empty.
    - Ensure [UPGRADING.md](UPGRADING.md) mentions any behaviour changes for that version if needed.
 
 2. **Run quality checks**
@@ -14,23 +14,24 @@ Maintainers: follow this checklist before creating a new tag.
    make release-check
    ```
 
-   This runs: `composer-sync`, `cs-fix`, `cs-check`, `rector-dry`, `phpstan`, `test-coverage`, and demo verification.
+   This runs: `check-no-cursor-coauthor`, `composer-sync`, `cs-fix`, `cs-check`, `rector-dry`, `phpstan`, `test-coverage`, and demo verification.
 
 3. **Commit** any changes (e.g. changelog, version bumps). Ensure the tree is clean and pushed:
 
    ```bash
    git status
-   git add -A && git commit -m "Release v1.0.10"   # if needed
+   git add -A && git commit -m "Release v1.0.11"   # if needed
+   make check-no-cursor-coauthor
    git push origin main
    ```
 
 ## Tag and publish
 
-4. **Create an annotated tag** (replace with the version you are releasing, e.g. `v1.0.10`). Ensure you have at least one commit before tagging:
+4. **Create an annotated tag** (replace with the version you are releasing, e.g. `v1.0.11`). Ensure you have at least one commit before tagging:
 
    ```bash
-   git tag -a v1.0.10 -m "Release v1.0.10"
-   git push origin v1.0.10
+   git tag -a v1.0.11 -m "Release v1.0.11"
+   git push origin v1.0.11
    ```
 
    If the bundle is developed in a monorepo and released from a separate clone (e.g. `nowo-tech/SerialNumberBundle`), run these commands in the clone that is pushed to the release remote.
@@ -40,3 +41,5 @@ Maintainers: follow this checklist before creating a new tag.
 
 6. **Packagist**  
    If the package is on [Packagist](https://packagist.org/packages/nowo-tech/serial-number-bundle), the new tag will be picked up automatically (or use “Update” there).
+
+After creating the release commit and tag, run `make check-no-cursor-coauthor` again **before** `git push` (REQ-GIT-001). The release commit itself is not covered by an earlier `release-check` run.

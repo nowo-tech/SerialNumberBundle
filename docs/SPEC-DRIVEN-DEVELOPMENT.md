@@ -66,6 +66,7 @@ The sections below state **behavior**; this subsection states **intent** in back
 | ID | Where | What it marks |
 | --- | --- | --- |
 | `REQ-MAKE-008` | Root `Makefile`, `demo/Makefile`, `demo/symfony7/Makefile`, `demo/symfony8/Makefile` | `update-deps` / `update-deps-demos`: refresh Composer locks for the bundle and Symfony demos (shared scripts under the parent `bundles/.scripts/` tree). |
+| `REQ-GIT-001` | `.scripts/check-no-cursor-coauthor.sh`, `.githooks/commit-msg`, `.github/workflows/ci.yml`, `Makefile` | No Cursor `Co-authored-by` trailers in commit messages or reachable history; see [GITHUB_CI.md](GITHUB_CI.md). |
 | `REQ-SF-002` | `.github/workflows/ci.yml` | CI PHPUnit matrix: minimum Symfony minors **6.4**, **7.0**, **7.4**, **8.0**, **8.1** across PHP 8.1–8.5. |
 | `REQ-CI-002` | `.scrutinizer.yml` | Scrutinizer build and analysis exclusions (see org `BUNDLES_FULL_SPECS_DETAILS.md`). |
 | `REQ-TEST-008` | `.scripts/php-coverage-percent.sh` | Parse PHPUnit coverage output for the Makefile `test-coverage` target. |
