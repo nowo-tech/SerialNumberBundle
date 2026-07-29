@@ -1,19 +1,14 @@
 # Serial Number Bundle
 
-[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml)
-[![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle)
-[![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)](https://php.net)
-[![Symfony](https://img.shields.io/badge/Symfony-6.0%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
+[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml) [![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?logo=php)](https://php.net) [![Symfony](https://img.shields.io/badge/Symfony-6.0%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
+
+Symfony bundle to generate and mask serial numbers for invoices, receipts, tickets, etc. Uses a pattern with placeholders (`{year}`, `{prefix}`, `{id}`), a context map, and an optional numeric id padding. Includes a Twig filter to mask the serial for display (e.g. show only last 4 digits).
 
 ![FrankenPHP Friendly Worker Mode](docs/images/frankenphp-friendly.png)
 
 This bundle is **FrankenPHP worker mode friendly**.
-
-Symfony bundle to generate and mask serial numbers for invoices, receipts, tickets, etc. Uses a pattern with placeholders (`{year}`, `{prefix}`, `{id}`), a context map, and an optional numeric id padding. Includes a Twig filter to mask the serial for display (e.g. show only last 4 digits).
 
 ## Features
 
@@ -21,27 +16,11 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 - **Twig function** `serial_number(context, pattern, id, padding?)`: generate serial in templates.
 - **Twig filter** `serial_number_mask(serial, visibleLast?, maskChar?)`: mask a serial leaving only the last N characters visible (e.g. `***************0042`).
 
-## Documentation
+## Version policy
 
-- [Installation](docs/INSTALLATION.md)
-- [Configuration](docs/CONFIGURATION.md)
-- [Usage](docs/USAGE.md)
-- [Contributing](docs/CONTRIBUTING.md)
+The Composer package name is [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle). Source code and issues are in the GitHub repository [`nowo-tech/SerialNumberBundle`](https://github.com/nowo-tech/SerialNumberBundle).
 
-- [Changelog](docs/CHANGELOG.md)
-- [Upgrading](docs/UPGRADING.md)
-- [Release](docs/RELEASE.md)
-- [Security](docs/SECURITY.md)
-- [Engram](docs/ENGRAM.md)
-- [Spec-driven development](docs/SPEC-DRIVEN-DEVELOPMENT.md)
-- [GitHub Spec Kit](docs/SPEC-KIT.md)
-
-### Additional documentation
-
-- [GitHub Actions CI requirements](docs/GITHUB_CI.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Demo (Symfony 7 & 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
-- [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
+We follow [Semantic Versioning](https://semver.org/). See [Changelog](docs/CHANGELOG.md) for release notes. Security support by major version is described in the [Security policy](.github/SECURITY.md#supported-versions).
 
 ## Quick example
 
@@ -73,16 +52,32 @@ $serial = $this->serialNumberGenerator->generate(
 - Symfony 6.0, 7.0, or 8.0 (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
 - Twig 3.8+ or 4.x
 
+## Documentation
+
+- [Installation](docs/INSTALLATION.md)
+- [Configuration](docs/CONFIGURATION.md)
+- [Usage](docs/USAGE.md)
+- [Contributing](docs/CONTRIBUTING.md)
+
+- [Changelog](docs/CHANGELOG.md)
+- [Upgrading](docs/UPGRADING.md)
+- [Release](docs/RELEASE.md)
+- [Security](docs/SECURITY.md)
+- [Engram](docs/ENGRAM.md)
+- [Spec-driven development](docs/SPEC-DRIVEN-DEVELOPMENT.md)
+- [GitHub Spec Kit](docs/SPEC-KIT.md)
+
+### Additional documentation
+
+- [GitHub Actions CI requirements](docs/GITHUB_CI.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Demo (Symfony 7 & 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
+- [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
+
 ## Tests and coverage
 
 - Tests: PHPUnit (PHP)
 - PHP: 100%
-
-## Version policy
-
-The Composer package name is [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle). Source code and issues are in the GitHub repository [`nowo-tech/SerialNumberBundle`](https://github.com/nowo-tech/SerialNumberBundle).
-
-We follow [Semantic Versioning](https://semver.org/). See [Changelog](docs/CHANGELOG.md) for release notes. Security support by major version is described in the [Security policy](.github/SECURITY.md#supported-versions).
 
 ## License
 
