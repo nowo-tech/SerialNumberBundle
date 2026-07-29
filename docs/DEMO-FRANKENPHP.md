@@ -8,9 +8,10 @@ This document describes how the bundle’s demo applications run under **Franken
 - [What the demos include](#what-the-demos-include)
 - [Development configuration](#development-configuration)
 - [Production configuration](#production-configuration)
-- [Switching between development and production](#switching-between-development-and-production)
+- [Switching classic vs worker (`FRANKENPHP_MODE`)](#switching-classic-vs-worker-frankenphp_mode)
 - [Reproducing in another bundle](#reproducing-in-another-bundle)
 - [Troubleshooting](#troubleshooting)
+- [Demo smoke (REQ-TEST-011)](#demo-smoke-req-test-011)
 
 ---
 
@@ -23,7 +24,7 @@ The demos use:
 - **FrankenPHP** (Caddy + PHP) in a single container.
 - **Docker Compose** with the app and the parent bundle mounted as volumes (`../..` → `/var/serial-number-bundle`).
 - **Two Caddyfiles**: `Caddyfile` (production, with worker) and `Caddyfile.dev` (development, no worker).
-- An **entrypoint** script that, when `APP_ENV=dev`, copies `Caddyfile.dev` over the default Caddyfile and then starts FrankenPHP.
+- An **entrypoint** that selects classic vs worker Caddyfile from **`FRANKENPHP_MODE`** (`classic` \| `worker`, default **`worker`** in `.env.example`)
 
 There are demos for **Symfony 7** and **Symfony 8** (e.g. **demo/symfony7**, **demo/symfony8**). Each has its own Dockerfile, docker-compose.yml and Makefile. From the bundle root you run e.g. `make -C demo/symfony8 up` (see the demo’s README for the URL and port).
 
@@ -215,7 +216,7 @@ Or from the bundle root: `make -C demo/symfony8 build` then adjust env to prod a
 
 ---
 
-## Switching between development and production
+## Switching classic vs worker (`FRANKENPHP_MODE`)
 
 - **Development (demos’ default):** `APP_ENV=dev` and `APP_DEBUG=1`. The entrypoint copies `Caddyfile.dev` (no worker, no-cache headers) over the active Caddyfile. The demos use `config/packages/dev/twig.yaml` with `cache: false` and mount `docker/php-dev.ini` with `opcache.revalidate_freq=0`.
 - **Production:** Set `APP_ENV=prod` and `APP_DEBUG=0`. The entrypoint leaves the default Caddyfile (with worker) in place. Do not mount `php-dev.ini` in production.
@@ -276,3 +277,15 @@ This gives you a reproducible development setup (changes visible on refresh) and
 
 - The Caddyfile is read when FrankenPHP starts. Restart the container: `docker-compose restart` or `make -C demo/symfony8 restart`.
 - In dev, the entrypoint copies `Caddyfile.dev` over the default; ensure you edited `Caddyfile.dev` and that it is mounted (or baked into the image) so the copy is up to date.
+
+---
+
+## Demo smoke (REQ-TEST-011)
+
+From the bundle root:
+
+```bash
+make demo-smoke
+```
+
+Boots `demo/symfony8`, asserts **HTTP 200** on `http://127.0.0.1:<PORT>` (from `.env` / `.env.example`, default **8008**), then tears down. CI: `.github/workflows/demo-smoke.yml`.

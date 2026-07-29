@@ -1,14 +1,18 @@
 # PHPStan configuration for Serial Number Bundle.
 #
-# Static analysis on src/ and tests/ (level 8).
+# Static analysis on src/ (level 8). REQ-CS-006: empty ignoreErrors.
 # Run: make phpstan
 parameters:
     level: 8
     paths:
         - src
-        - tests
     excludePaths:
         - demo/*
         - vendor/*
     reportUnmatchedIgnoredErrors: false
     treatPhpDocTypesAsCertain: false
+    ignoreErrors: []
+
+includes:
+  - vendor/nowo-tech/phpstan-frankenphp/ruleset-classic.neon
+  - vendor/nowo-tech/phpstan-frankenphp/ruleset-worker.neon

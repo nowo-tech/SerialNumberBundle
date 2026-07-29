@@ -16,7 +16,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  * @author Héctor Franco Aceituno <hectorfranco@nowo.tech>
  * @copyright 2026 Nowo.tech
  */
-class NowoSerialNumberExtension extends Extension
+final class NowoSerialNumberExtension extends Extension
 {
     /**
      * Loads bundle services and registers configuration parameters.

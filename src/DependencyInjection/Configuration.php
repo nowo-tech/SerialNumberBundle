@@ -15,7 +15,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  * @author Héctor Franco Aceituno <hectorfranco@nowo.tech>
  * @copyright 2026 Nowo.tech
  */
-class Configuration implements ConfigurationInterface
+final class Configuration implements ConfigurationInterface
 {
     /**
      * Builds the config tree for nowo_serial_number (mask_char, mask_visible_last).

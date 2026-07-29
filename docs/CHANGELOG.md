@@ -7,9 +7,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
-- [1.0.11 - 2026-07-16](#1011---2026-07-16)
+- [1.0.12 - 2026-07-29](#1012---2026-07-29)
   - [Added](#added)
   - [Changed](#changed)
+  - [Documentation](#documentation)
+- [1.0.11 - 2026-07-16](#1011---2026-07-16)
+  - [Added](#added-1)
+  - [Changed](#changed-1)
 - [1.0.10 - 2026-07-13](#1010---2026-07-13)
   - [Changed](#changed-1)
 - [1.0.9 - 2026-07-09](#109---2026-07-09)
@@ -40,6 +44,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.12] - 2026-07-29
+
+### Added
+
+- **`make demo-smoke`** + `.github/workflows/demo-smoke.yml`: boot `demo/symfony8` and assert HTTP 200 (REQ-TEST-011).
+- **`make down-dev`**: stop root compose with `--remove-orphans` (REQ-MAKE-007).
+- **REQ-SF-005**: `SYMFONY_DEPRECATIONS_HELPER=max[direct]=0` in `phpunit.xml.dist` and CI.
+- FrankenPHP Friendly Worker Mode banner in README (REQ-DOCS-017).
+- CI job **PHPStan** (REQ-CS-006).
+- **REQ-CS-005:** `nowo-tech/phpstan-frankenphp` in `require-dev` with classic + worker rulesets.
+
+### Changed
+
+- PHPStan: explicit `ignoreErrors: []`, analyse `src` only (REQ-CS-006).
+- `NowoSerialNumberBundle`, `NowoSerialNumberExtension`, and `Configuration` are `final` (REQ-PHP-001).
+- `composer.json` keywords: add `php`, `symfony-bundle`, `frankenphp` (REQ-PKG-004).
+- README `## Documentation` canonical order; `GITHUB_CI` under Additional (REQ-DOCS-002).
+- Compose V2 detection; demos use external `docker/entrypoint.sh` (REQ-MAKE-010).
+
+### Documentation
+
+- GitHub About: plain Description, Packagist Website, Topics (REQ-DOCS-018).
+- [UPGRADING.md](UPGRADING.md) / [RELEASE.md](RELEASE.md) updated for 1.0.12.
 
 ## [1.0.11] - 2026-07-16
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nowo\SerialNumberBundle\Tests\Unit\DependencyInjection;
 
 use Nowo\SerialNumberBundle\DependencyInjection\NowoSerialNumberExtension;
+use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -53,6 +54,6 @@ final class NowoSerialNumberExtensionTest extends TestCase
         $container = new ContainerBuilder();
         $this->extension->load([], $container);
 
-        self::assertTrue($container->has(\Nowo\SerialNumberBundle\Service\SerialNumberGenerator::class));
+        self::assertTrue($container->has(SerialNumberGenerator::class));
     }
 }

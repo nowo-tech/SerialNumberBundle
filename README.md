@@ -9,6 +9,10 @@
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
 
+![FrankenPHP Friendly Worker Mode](docs/images/frankenphp-friendly.png)
+
+This bundle is **FrankenPHP worker mode friendly**.
+
 Symfony bundle to generate and mask serial numbers for invoices, receipts, tickets, etc. Uses a pattern with placeholders (`{year}`, `{prefix}`, `{id}`), a context map, and an optional numeric id padding. Includes a Twig filter to mask the serial for display (e.g. show only last 4 digits).
 
 ## Features
@@ -19,12 +23,11 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 
 ## Documentation
 
-- [GitHub Actions CI requirements](docs/GITHUB_CI.md)
 - [Installation](docs/INSTALLATION.md)
 - [Configuration](docs/CONFIGURATION.md)
 - [Usage](docs/USAGE.md)
 - [Contributing](docs/CONTRIBUTING.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
+
 - [Changelog](docs/CHANGELOG.md)
 - [Upgrading](docs/UPGRADING.md)
 - [Release](docs/RELEASE.md)
@@ -35,6 +38,8 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 
 ### Additional documentation
 
+- [GitHub Actions CI requirements](docs/GITHUB_CI.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Demo (Symfony 7 & 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
 - [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
 

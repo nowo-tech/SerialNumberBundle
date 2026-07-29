@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * @author Héctor Franco Aceituno <hectorfranco@nowo.tech>
  * @copyright 2026 Nowo.tech
  */
-class NowoSerialNumberBundle extends Bundle
+final class NowoSerialNumberBundle extends Bundle
 {
     /**
      * Returns the DI extension for this bundle (NowoSerialNumberExtension).

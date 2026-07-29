@@ -2,10 +2,17 @@
 # All dev targets use the root docker-compose.yml.
 
 COMPOSE_FILE := docker-compose.yml
-COMPOSE     := docker-compose -f $(COMPOSE_FILE)
+# Prefer Compose V2; absolute docker path avoids shadowing by local docker/ when PATH has "." (REQ-MAKE-010).
+DOCKER_BIN := $(shell PATH="/usr/local/bin:/usr/bin:/bin:$$PATH" command -v docker 2>/dev/null)
+ifeq ($(DOCKER_BIN),)
+COMPOSE_BIN := docker-compose
+else
+COMPOSE_BIN := $(shell $(DOCKER_BIN) compose version >/dev/null 2>&1 && echo "$(DOCKER_BIN) compose" || echo "docker-compose")
+endif
+COMPOSE     := $(COMPOSE_BIN) -f $(COMPOSE_FILE)
 SERVICE_PHP := php
 
-.PHONY: help up down build shell install test test-coverage coverage-php-percent cs-check cs-fix qa clean release-check release-check-demos composer-sync rector rector-dry phpstan update validate setup-hooks check-no-cursor-coauthor strip-cursor-coauthor-from-history
+.PHONY: help up down down-dev build shell install test test-coverage coverage-php-percent cs-check cs-fix qa clean release-check release-check-demos demo-smoke composer-sync rector rector-dry phpstan update validate setup-hooks check-no-cursor-coauthor strip-cursor-coauthor-from-history
 
 help:
 	@echo "Serial Number Bundle - Development Commands"
@@ -15,6 +22,7 @@ help:
 	@echo "Targets:"
 	@echo "  up            Start Docker container"
 	@echo "  down          Stop Docker container"
+	@echo "  down-dev      Stop root compose (dev) and remove orphans"
 	@echo "  build         Rebuild Docker image (no cache)"
 	@echo "  shell         Open shell in container"
 	@echo "  install       Install Composer dependencies"
@@ -28,6 +36,7 @@ help:
 	@echo "  phpstan       Run PHPStan static analysis"
 	@echo "  qa            Run all QA checks (cs-check + test)"
 	@echo "  release-check Pre-release: check-no-cursor-coauthor, QA, demos"
+	@echo "  demo-smoke    REQ-TEST-011: boot primary demo + HTTP 200"
 	@echo "  composer-sync Validate composer.json and align composer.lock (no install)"
 	@echo "  clean         Remove vendor and cache"
 	@echo "  update        Update composer.lock (composer update)"
@@ -52,6 +61,9 @@ up:
 down:
 	$(COMPOSE) down
 
+down-dev:
+	$(COMPOSE) down --remove-orphans
+
 shell:
 	$(COMPOSE) exec $(SERVICE_PHP) sh
 
@@ -61,7 +73,7 @@ install: ensure-up
 
 ensure-up:
 	@if ! $(COMPOSE) exec -T $(SERVICE_PHP) true 2>/dev/null; then \
-		echo "Starting container (root docker-compose)..."; \
+		echo "Starting container (root $(COMPOSE))..."; \
 		$(COMPOSE) up -d; \
 		sleep 3; \
 		$(COMPOSE) exec -T $(SERVICE_PHP) composer install --no-interaction; \
@@ -103,6 +115,9 @@ release-check: check-no-cursor-coauthor ensure-up composer-sync cs-fix cs-check 
 release-check-demos:
 	@$(MAKE) -C demo release-check
 
+demo-smoke:
+	@$(MAKE) -C demo demo-smoke
+
 composer-sync: ensure-up
 	$(COMPOSE) exec -T $(SERVICE_PHP) composer validate --strict
 	$(COMPOSE) exec -T $(SERVICE_PHP) composer update --no-install
@@ -123,7 +138,8 @@ setup-hooks:
 
 # REQ-MAKE-008: update-deps (REQ-MAKE-008)
 BUNDLE_ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
-include $(BUNDLE_ROOT)/../.scripts/Makefile.update-deps.mk
+# Optional: monorepo helper absent on standalone GitHub Actions checkout (REQ-MAKE-009).
+-include $(BUNDLE_ROOT)/../.scripts/Makefile.update-deps.mk
 check-no-cursor-coauthor:
 	@chmod +x .scripts/check-no-cursor-coauthor.sh
 	@./.scripts/check-no-cursor-coauthor.sh HEAD
