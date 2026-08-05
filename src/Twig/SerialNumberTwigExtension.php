@@ -46,7 +46,6 @@ final class SerialNumberTwigExtension extends AbstractExtension
             new TwigFunction(
                 'serial_number',
                 $this->generateSerialNumber(...),
-                ['is_safe' => ['html']],
             ),
         ];
     }
@@ -62,7 +61,6 @@ final class SerialNumberTwigExtension extends AbstractExtension
             new TwigFilter(
                 'serial_number_mask',
                 $this->maskSerialNumber(...),
-                ['is_safe' => ['html']],
             ),
         ];
     }
