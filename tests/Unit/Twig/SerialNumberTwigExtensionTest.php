@@ -73,7 +73,7 @@ final class SerialNumberTwigExtensionTest extends TestCase
         $functions = $this->extension->getFunctions();
         self::assertCount(1, $functions);
         self::assertSame('serial_number', $functions[0]->getName());
-        self::assertNull($functions[0]->getSafe(new Node()));
+        self::assertSame([], $functions[0]->getSafe(new Node()));
     }
 
     public function testGetFiltersReturnsSerialNumberMask(): void
@@ -81,7 +81,7 @@ final class SerialNumberTwigExtensionTest extends TestCase
         $filters = $this->extension->getFilters();
         self::assertCount(1, $filters);
         self::assertSame('serial_number_mask', $filters[0]->getName());
-        self::assertNull($filters[0]->getSafe(new Node()));
+        self::assertSame([], $filters[0]->getSafe(new Node()));
     }
 
     public function testMaskSerialNumberNegativeVisibleLastTreatedAsZero(): void
