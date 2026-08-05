@@ -47,14 +47,11 @@ Mitigations address **resource exhaustion (DoS)** and document **XSS** considera
 
 ## 2. XSS and user-controlled data
 
-Twig functions/filters use **`is_safe => ['html']`**, so Twig does not escape the output. That is appropriate when values are **application-controlled** (e.g. system-generated invoice numbers).
+Twig function `serial_number` and filter `serial_number_mask` do **not** mark output as HTML-safe (`is_safe` is not set). Twig **auto-escapes** their results in HTML templates by default.
 
-- **Recommendation:** Do not pass unsanitized user input (forms, query strings, etc.) directly into `serial_number()` or `serial_number_mask()` without validating/escaping the result for HTML.
-- If serials or context values may contain user content:
-  - Escape in the template (e.g. `{{ serial|serial_number_mask(4)|e }}` when you need escaping for that value), or
-  - Ensure values are sanitized before they reach the bundle.
-
-The bundle does not HTML-escape; the application must use serials safely in HTML context.
+- Prefer application-controlled values (e.g. system-generated invoice numbers).
+- If serials or context values may contain user content, keep auto-escaping enabled; do not pipe through `|raw` unless the value is already sanitized for HTML.
+- Outside HTML contexts (e.g. attributes, JS), escape appropriately for that context.
 
 ---
 
