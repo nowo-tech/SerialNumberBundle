@@ -45,6 +45,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.0.13] - 2026-08-18
+
+### Changed
+
+- **Demos:** pin `nowo-tech/hot-reload-bundle` to `^1.4` with FrankenPHP Mercure/`hot_reload` (`dev`/`test` only).
+- **Demos:** Symfony 8 only; Symfony 6/7 demo apps removed.
+
+[1.0.13]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.13
+
 ## [1.0.12] - 2026-07-29
 
 ### Added
@@ -204,7 +213,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.11...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.13...HEAD
 [1.0.11]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...v1.0.9
