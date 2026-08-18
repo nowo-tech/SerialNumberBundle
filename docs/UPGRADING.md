@@ -44,7 +44,6 @@ No breaking changes to the bundle API or configuration. Dev-dependency lock refr
 No breaking changes to the bundle API or configuration.
 
 - **Documentation only for integrators:** New GitHub Spec Kit baseline and maintainer docs ([SPEC-KIT.md](SPEC-KIT.md), [`specs/001-baseline/`](../specs/001-baseline/)). No application code or config changes required to upgrade from Packagist.
-- **Demo Symfony 7 (Docker):** Rebuild the FrankenPHP image after pulling (`docker compose build` in `demo/symfony7`) so `ext-intl` is available, matching the Symfony 8 demo.
 - **Maintainers:** When changing production code under `src/`, update [`specs/001-baseline/spec.md`](../specs/001-baseline/spec.md) and [`code-inventory.md`](../specs/001-baseline/code-inventory.md) per [SPEC-KIT.md](SPEC-KIT.md).
 
 ## From 1.0.7 to 1.0.8
