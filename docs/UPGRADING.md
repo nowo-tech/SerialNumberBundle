@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.12 to 1.0.13](#from-1012-to-1013)
 - [From 1.0.11 to 1.0.12](#from-1011-to-1012)
 - [From 1.0.10 to 1.0.11](#from-1010-to-1011)
 - [From 1.0.9 to 1.0.10](#from-109-to-1010)
@@ -16,6 +17,10 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.12 to 1.0.13
+
+No application upgrade steps. Demos only: Hot Reload Bundle `^1.4`; Symfony 8 is the only shipped demo (Symfony 6/7 demo apps removed).
 
 ## From 1.0.11 to 1.0.12
 
