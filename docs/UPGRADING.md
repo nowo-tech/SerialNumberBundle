@@ -2,6 +2,7 @@
 
 ## Table of contents
 
+- [From 1.0.13 to 1.0.14](#from-1013-to-1014)
 - [From 1.0.12 to 1.0.13](#from-1012-to-1013)
 - [From 1.0.11 to 1.0.12](#from-1011-to-1012)
 - [From 1.0.10 to 1.0.11](#from-1010-to-1011)
@@ -17,6 +18,14 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.13 to 1.0.14
+
+No application upgrade steps.
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
 
 ## From 1.0.12 to 1.0.13
 
