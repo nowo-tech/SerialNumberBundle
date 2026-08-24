@@ -2,6 +2,8 @@
 
 ## Table of contents
 
+
+- [From 1.0.14 to 1.0.15](#from-1014-to-1015)
 - [From 1.0.13 to 1.0.14](#from-1013-to-1014)
 - [From 1.0.12 to 1.0.13](#from-1012-to-1013)
 - [From 1.0.11 to 1.0.12](#from-1011-to-1012)
