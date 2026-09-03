@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-use Nowo\SerialNumberBundle\NowoSerialNumberBundle;
 use Nowo\HotReloadBundle\NowoHotReloadBundle;
+use Nowo\SerialNumberBundle\NowoSerialNumberBundle;
 use Nowo\TwigInspectorBundle\NowoTwigInspectorBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -14,7 +14,7 @@ return [
     TwigBundle::class              => ['all' => true],
     WebProfilerBundle::class       => ['dev' => true, 'test' => true],
     NowoSerialNumberBundle::class  => ['all' => true],
-    NowoHotReloadBundle::class => ['dev' => true, 'test' => true],
+    NowoHotReloadBundle::class     => ['dev' => true, 'test' => true],
     NowoTwigInspectorBundle::class => ['dev' => true, 'test' => true],
-    TwigExtraBundle::class => ['all' => true],
+    TwigExtraBundle::class         => ['all' => true],
 ];
