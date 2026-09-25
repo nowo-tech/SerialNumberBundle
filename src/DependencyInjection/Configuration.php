@@ -34,7 +34,7 @@ final class Configuration implements ConfigurationInterface
                     ->info('Single character used to mask the serial number when using the Twig filter (e.g. "*")')
                     ->defaultValue('*')
                     ->validate()
-                        ->ifTrue(static fn ($v): bool => $v !== '' && mb_strlen((string) $v) > 1)
+                        ->ifTrue(static fn ($v): bool => $v !== '' && mb_strlen((string) $v, 'UTF-8') > 1)
                         ->thenInvalid('mask_char must be a single character.')
                     ->end()
                 ->end()

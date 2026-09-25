@@ -8,7 +8,7 @@ Symfony bundle to generate and mask serial numbers for invoices, receipts, ticke
 
 ![FrankenPHP Friendly Worker Mode](docs/images/frankenphp-friendly.png)
 
-This bundle is **FrankenPHP worker mode friendly**.
+This bundle is **FrankenPHP worker mode friendly** (including when the Symfony kernel is **not** reset between requests). See the [FrankenPHP worker audit](docs/FRANKENPHP-WORKER-AUDIT.md).
 
 ## Features
 
@@ -48,7 +48,7 @@ $serial = $this->serialNumberGenerator->generate(
 
 ## Requirements
 
-- PHP >= 8.1, < 8.6
+- PHP >= 8.2, < 8.6
 - Symfony 6.0, 7.0, or 8.0 (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
 - Twig 3.8+ or 4.x
 
@@ -59,7 +59,6 @@ $serial = $this->serialNumberGenerator->generate(
 - [PSR evaluation (REQ-CS-007)](docs/PSR.md)
 - [Usage](docs/USAGE.md)
 - [Contributing](docs/CONTRIBUTING.md)
-
 - [Changelog](docs/CHANGELOG.md)
 - [Upgrading](docs/UPGRADING.md)
 - [Release](docs/RELEASE.md)
@@ -72,8 +71,9 @@ $serial = $this->serialNumberGenerator->generate(
 
 - [GitHub Actions CI requirements](docs/GITHUB_CI.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Demo (Symfony 7 & 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
+- [Demo (Symfony 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
 - [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
+- [FrankenPHP worker audit (kernel not reset)](docs/FRANKENPHP-WORKER-AUDIT.md)
 
 ## Tests and coverage
 

@@ -36,7 +36,7 @@ Mitigations address **resource exhaustion (DoS)** and document **XSS** considera
 ### 1.3 DoS via multi-character `mask_char`
 
 - **Issue:** A long string used as the mask character could multiply output size when repeated.
-- **Mitigation:** Only the first character is used (multibyte-safe via `mb_substr`). `Configuration` validates `mask_char` as a single character.
+- **Mitigation:** Only the first character is used (multibyte-safe via `mb_substr` with explicit `UTF-8`). `Configuration` validates `mask_char` as a single character.
 
 ### 1.4 DoS via very large `idPadding`
 

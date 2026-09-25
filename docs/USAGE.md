@@ -7,6 +7,7 @@
 - [Twig function: serial_number](#twig-function-serial_number)
 - [Twig filter: serial_number_mask](#twig-filter-serial_number_mask)
 - [Combined: generate and mask in Twig](#combined-generate-and-mask-in-twig)
+- [FrankenPHP worker mode](#frankenphp-worker-mode)
 
 ## Service: SerialNumberGenerator
 
@@ -83,3 +84,7 @@ Arguments: `(visibleLast?, maskChar?)`. Both are optional; defaults come from bu
 ```
 
 This generates the full serial and then masks it for display (e.g. in tables or emails where you do not want to expose the full number).
+
+## FrankenPHP worker mode
+
+Services are **stateless**: safe when FrankenPHP keeps the Symfony kernel warm without reset between requests. Multibyte masking always uses UTF-8 and does not depend on `mb_internal_encoding()`. Obtain the numeric id from a transactional source on every request (the bundle does not allocate ids). Full audit: [FRANKENPHP-WORKER-AUDIT.md](FRANKENPHP-WORKER-AUDIT.md).

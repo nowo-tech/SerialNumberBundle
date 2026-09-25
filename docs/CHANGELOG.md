@@ -7,9 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
-- [1.0.12 - 2026-07-29](#1012---2026-07-29)
+- [1.0.16 - 2026-09-25](#1016---2026-09-25)
   - [Added](#added)
   - [Changed](#changed)
+- [1.0.15 - 2026-08-24](#1015---2026-08-24)
+- [1.0.14 - 2026-08-19](#1014---2026-08-19)
+- [1.0.13 - 2026-08-18](#1013---2026-08-18)
+- [1.0.12 - 2026-07-29](#1012---2026-07-29)
+  - [Added](#added-1)
+  - [Changed](#changed-1)
   - [Documentation](#documentation)
 - [1.0.11 - 2026-07-16](#1011---2026-07-16)
   - [Added](#added-1)
@@ -45,6 +51,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [1.0.16] - 2026-09-25
+
+### Added
+
+- **Documentation:** [FRANKENPHP-WORKER-AUDIT.md](FRANKENPHP-WORKER-AUDIT.md) — full audit for FrankenPHP worker mode with **kernel not reset** between requests (scenario B); verdict **Viable (100%)**. Linked from README.
+- **Specs:** `FR-TWIG-002` (explicit UTF-8 for `mb_*`) and `FR-WORKER-001` (stateless shared services) in [`specs/001-baseline/`](../specs/001-baseline/).
+
+### Changed
+
+- **Twig masking:** `SerialNumberTwigExtension::maskSerialNumber()` and config validation pass encoding `'UTF-8'` to every `mb_*` call so masking does not depend on process-wide `mb_internal_encoding()` in long-lived workers.
+- **Tests:** `testMaskSerialNumberIgnoresProcessMbInternalEncoding` proves isolation when the process encoding is changed; integration container compile uses `compile(true)` (Rector).
+- **Bundle (dev):** Refreshed root `composer.lock`.
 
 ## [1.0.15] - 2026-08-24
 
@@ -56,8 +74,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Notes
 
 - **No API or configuration changes** for integrators unless noted above.
-
-[1.0.15]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.15
 
 ## [1.0.14] - 2026-08-19
 
@@ -71,8 +87,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - **Demos:** pin `nowo-tech/hot-reload-bundle` to `^1.4` with FrankenPHP Mercure/`hot_reload` (`dev`/`test` only).
 - **Demos:** Symfony 8 only; Symfony 6/7 demo apps removed.
-
-[1.0.13]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.13
 
 ## [1.0.12] - 2026-07-29
 
@@ -233,7 +247,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.13...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.16...HEAD
+[1.0.16]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.15...v1.0.16
+[1.0.15]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.15
+[1.0.14]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.14
+[1.0.13]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.13
+[1.0.12]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.11...v1.0.12
 [1.0.11]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.8...v1.0.9

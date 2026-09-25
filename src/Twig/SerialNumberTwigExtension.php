@@ -24,6 +24,12 @@ final class SerialNumberTwigExtension extends AbstractExtension
     private const MAX_SERIAL_LENGTH = 2048;
 
     /**
+     * Encoding used for all mb_* calls so masking does not depend on process-wide
+     * mb_internal_encoding() (important under FrankenPHP worker with no kernel reset).
+     */
+    private const MB_ENCODING = 'UTF-8';
+
+    /**
      * @param SerialNumberGenerator $generator Service used to build serials from pattern, context and id
      * @param string $defaultMaskChar Default character for masking (e.g. '*')
      * @param int $defaultVisibleLast Default number of trailing characters to leave visible when masking
@@ -102,11 +108,13 @@ final class SerialNumberTwigExtension extends AbstractExtension
         $visible = max(0, $visible);
 
         $char = $maskChar ?? $this->defaultMaskChar;
-        $char = mb_strlen($char) > 1 ? mb_substr($char, 0, 1) : $char;
+        $char = mb_strlen($char, self::MB_ENCODING) > 1
+            ? mb_substr($char, 0, 1, self::MB_ENCODING)
+            : $char;
 
-        $length = mb_strlen($serial);
+        $length = mb_strlen($serial, self::MB_ENCODING);
         if ($length > self::MAX_SERIAL_LENGTH) {
-            $serial = mb_substr($serial, 0, self::MAX_SERIAL_LENGTH);
+            $serial = mb_substr($serial, 0, self::MAX_SERIAL_LENGTH, self::MB_ENCODING);
             $length = self::MAX_SERIAL_LENGTH;
         }
         if ($visible <= 0) {
@@ -116,7 +124,7 @@ final class SerialNumberTwigExtension extends AbstractExtension
             return $serial;
         }
 
-        $visiblePart = mb_substr($serial, -$visible);
+        $visiblePart = mb_substr($serial, -$visible, null, self::MB_ENCODING);
         $maskLength  = $length - $visible;
 
         return str_repeat($char, $maskLength) . $visiblePart;

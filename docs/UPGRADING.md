@@ -3,6 +3,7 @@
 ## Table of contents
 
 
+- [From 1.0.15 to 1.0.16](#from-1015-to-1016)
 - [From 1.0.14 to 1.0.15](#from-1014-to-1015)
 - [From 1.0.13 to 1.0.14](#from-1013-to-1014)
 - [From 1.0.12 to 1.0.13](#from-1012-to-1013)
@@ -20,6 +21,25 @@
 - [From 1.0.0 to 1.0.1](#from-100-to-101)
 - [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
+## From 1.0.15 to 1.0.16
+
+No breaking changes to the bundle API or configuration.
+
+- **FrankenPHP worker (kernel not reset):** Masking now always uses UTF-8 for multibyte operations, independent of `mb_internal_encoding()`. No app config change required. See [FRANKENPHP-WORKER-AUDIT.md](FRANKENPHP-WORKER-AUDIT.md).
+- **Integrators:** Still obtain the numeric id from a transactional source per request (the bundle does not allocate ids).
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
+
+## From 1.0.14 to 1.0.15
+
+Minimum PHP is **8.2**. Applications still on PHP 8.1 must upgrade PHP before installing this version.
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
 
 ## From 1.0.13 to 1.0.14
 

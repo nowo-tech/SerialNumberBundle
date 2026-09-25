@@ -105,4 +105,17 @@ final class SerialNumberTwigExtensionTest extends TestCase
         $result = $this->extension->maskSerialNumber($serial, 4, '**');
         self::assertSame('**********0042', $result);
     }
+
+    public function testMaskSerialNumberIgnoresProcessMbInternalEncoding(): void
+    {
+        $previous = mb_internal_encoding();
+        try {
+            mb_internal_encoding('ISO-8859-1');
+            $serial = "FAC-\xC3\xA9-00042"; // UTF-8 "é" → 11 characters total
+            $result = $this->extension->maskSerialNumber($serial, 4, '*');
+            self::assertSame('*******0042', $result);
+        } finally {
+            mb_internal_encoding($previous !== false ? $previous : 'UTF-8');
+        }
+    }
 }

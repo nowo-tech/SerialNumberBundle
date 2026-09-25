@@ -53,6 +53,11 @@ See user stories US-01…US-05 in [`docs/SPEC-DRIVEN-DEVELOPMENT.md`](../../docs
 ### Twig
 
 - **FR-TWIG-001**: Function `serial_number(...)` MUST delegate to generator; filter `serial_number_mask(...)` MUST mask with per-call or config defaults, cap input length at 2048 (`MAX_SERIAL_LENGTH`), and treat multi-char `mask_char` as first grapheme only.
+- **FR-TWIG-002**: Masking MUST use explicit `UTF-8` for all `mb_*` operations so behaviour does not depend on process-wide `mb_internal_encoding()` (FrankenPHP worker, no kernel reset).
+
+### Runtime / FrankenPHP worker
+
+- **FR-WORKER-001**: Shared services MUST be free of mutable per-request state (no static counters, no request-scoped caches) so the bundle remains correct when the Symfony kernel is **not** reset between FrankenPHP worker requests. See [`docs/FRANKENPHP-WORKER-AUDIT.md`](../../docs/FRANKENPHP-WORKER-AUDIT.md).
 
 ---
 
