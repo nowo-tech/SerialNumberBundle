@@ -13,6 +13,7 @@ make install
 make cs-check
 make test
 make phpstan
+make igor
 make rector-dry
 ```
 
