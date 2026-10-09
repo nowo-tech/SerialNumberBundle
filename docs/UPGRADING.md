@@ -3,6 +3,16 @@
 
 ## Unreleased
 
+## To 1.0.18
+
+From **1.0.17** — dependency refresh only.
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
+
+- No breaking changes. No application upgrade steps.
+
 ## To 1.0.17
 
 From **1.0.16** — REQ-CS-008 Igor FrankenPHP worker audit (igor-php require-dev, igor.json, make igor).

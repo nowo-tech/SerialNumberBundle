@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [1.0.18 - 2026-10-09](#1018---2026-10-09)
+  - [Dependencies](#dependencies)
+- [1.0.17 - 2026-09-27](#1017---2026-09-27)
 - [1.0.16 - 2026-09-25](#1016---2026-09-25)
   - [Added](#added)
   - [Changed](#changed)
@@ -50,6 +53,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - [Security](#security)
 
 ## [Unreleased]
+
+## [1.0.18] - 2026-10-09
+
+### Dependencies
+
+- Dependabot: `twig/twig` 3.30.0, `phpstan/phpstan`, `igor-php/igor-php` `^0.10.0` (dev), `nowo-tech/phpstan-frankenphp` 1.2.1.
+- Composer refresh: Symfony 7.4.20 components (lockfile); dev tooling `phpstan/phpstan` 2.3.1, `phpstan/phpstan-symfony` 2.1.0, `rector/rector` 2.7.0, `igor-php/igor-php` 0.10.1.
+- Demo: Symfony 8.1.8, `twig/twig` 3.30.0; regenerated `config/reference.php`.
 
 ## [1.0.17] - 2026-09-27
 
@@ -259,7 +270,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.16...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.18...HEAD
+[1.0.18]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.17...v1.0.18
 [1.0.16]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.15...v1.0.16
 [1.0.15]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.15
 [1.0.14]: https://github.com/nowo-tech/SerialNumberBundle/releases/tag/v1.0.14
