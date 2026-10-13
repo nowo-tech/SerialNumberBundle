@@ -1,5 +1,30 @@
 # Upgrading
 
+## Table of contents
+
+- [Unreleased](#unreleased)
+- [To 1.1.0](#to-110)
+- [To 1.0.18](#to-1018)
+- [To 1.0.17](#to-1017)
+- [From 1.0.15 to 1.0.16](#from-1015-to-1016)
+- [From 1.0.14 to 1.0.15](#from-1014-to-1015)
+- [From 1.0.13 to 1.0.14](#from-1013-to-1014)
+- [From 1.0.12 to 1.0.13](#from-1012-to-1013)
+- [From 1.0.11 to 1.0.12](#from-1011-to-1012)
+- [From 1.0.10 to 1.0.11](#from-1010-to-1011)
+- [From 1.0.9 to 1.0.10](#from-109-to-1010)
+- [From 1.0.8 to 1.0.9](#from-108-to-109)
+- [From 1.0.7 to 1.0.8](#from-107-to-108)
+- [From 1.0.6 to 1.0.7](#from-106-to-107)
+- [From 1.0.5 to 1.0.6](#from-105-to-106)
+- [From 1.0.4 to 1.0.5](#from-104-to-105)
+- [From 1.0.3 to 1.0.4](#from-103-to-104)
+- [From 1.0.2 to 1.0.3](#from-102-to-103)
+- [From 1.0.1 to 1.0.2](#from-101-to-102)
+- [From 1.0.0 to 1.0.1](#from-100-to-101)
+- [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
+  - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
+
 ## Unreleased
 
 ## To 1.1.0
@@ -33,27 +58,6 @@ php bin/console cache:clear
 ```
 
 - No application upgrade steps for require-dev Igor tooling (REQ-CS-008). Consumers do not pull `igor-php/igor-php` transitively.
-
-## Table of contents
-
-- [From 1.0.15 to 1.0.16](#from-1015-to-1016)
-- [From 1.0.14 to 1.0.15](#from-1014-to-1015)
-- [From 1.0.13 to 1.0.14](#from-1013-to-1014)
-- [From 1.0.12 to 1.0.13](#from-1012-to-1013)
-- [From 1.0.11 to 1.0.12](#from-1011-to-1012)
-- [From 1.0.10 to 1.0.11](#from-1010-to-1011)
-- [From 1.0.9 to 1.0.10](#from-109-to-1010)
-- [From 1.0.8 to 1.0.9](#from-108-to-109)
-- [From 1.0.7 to 1.0.8](#from-107-to-108)
-- [From 1.0.6 to 1.0.7](#from-106-to-107)
-- [From 1.0.5 to 1.0.6](#from-105-to-106)
-- [From 1.0.4 to 1.0.5](#from-104-to-105)
-- [From 1.0.3 to 1.0.4](#from-103-to-104)
-- [From 1.0.2 to 1.0.3](#from-102-to-103)
-- [From 1.0.1 to 1.0.2](#from-101-to-102)
-- [From 1.0.0 to 1.0.1](#from-100-to-101)
-- [From 0.x / pre-1.0 to 1.0](#from-0x--pre-10-to-10)
-  - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
 
 ## From 1.0.15 to 1.0.16
 
