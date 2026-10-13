@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nowo\SerialNumberBundle\Twig;
 
+use InvalidArgumentException;
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
@@ -97,6 +98,8 @@ final class SerialNumberTwigExtension extends AbstractExtension
      * @param int|null $visibleLast Number of trailing chars to show (default from config, typically 4)
      * @param string|null $maskChar Character used for masking (default from config, typically '*')
      *
+     * @throws InvalidArgumentException When the mask character is empty
+     *
      * @return string The masked string (e.g. "*************0042" when visibleLast is 4)
      */
     public function maskSerialNumber(
@@ -105,27 +108,25 @@ final class SerialNumberTwigExtension extends AbstractExtension
         ?string $maskChar = null,
     ): string {
         $visible = $visibleLast ?? $this->defaultVisibleLast;
-        $visible = max(0, $visible);
+        $visible = min(max(0, $visible), self::MAX_SERIAL_LENGTH);
 
         $char = $maskChar ?? $this->defaultMaskChar;
+        if ($char === '') {
+            throw new InvalidArgumentException('serial_number_mask: the mask character must not be empty.');
+        }
         $char = mb_strlen($char, self::MB_ENCODING) > 1
             ? mb_substr($char, 0, 1, self::MB_ENCODING)
             : $char;
 
         $length = mb_strlen($serial, self::MB_ENCODING);
-        if ($length > self::MAX_SERIAL_LENGTH) {
-            $serial = mb_substr($serial, 0, self::MAX_SERIAL_LENGTH, self::MB_ENCODING);
-            $length = self::MAX_SERIAL_LENGTH;
-        }
-        if ($visible <= 0) {
-            return str_repeat($char, $length);
-        }
         if ($length <= $visible) {
             return $serial;
         }
 
-        $visiblePart = mb_substr($serial, -$visible, null, self::MB_ENCODING);
-        $maskLength  = $length - $visible;
+        // The visible suffix always comes from the original serial; only the masked part is capped
+        // so the output never exceeds MAX_SERIAL_LENGTH characters.
+        $visiblePart = $visible > 0 ? mb_substr($serial, -$visible, null, self::MB_ENCODING) : '';
+        $maskLength  = min($length - $visible, self::MAX_SERIAL_LENGTH - $visible);
 
         return str_repeat($char, $maskLength) . $visiblePart;
     }

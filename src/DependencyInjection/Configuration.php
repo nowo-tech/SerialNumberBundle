@@ -7,6 +7,9 @@ namespace Nowo\SerialNumberBundle\DependencyInjection;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
+use function is_scalar;
+use function mb_strlen;
+
 /**
  * Defines the configuration tree for the Serial Number Bundle (nowo_serial_number).
  *
@@ -34,8 +37,8 @@ final class Configuration implements ConfigurationInterface
                     ->info('Single character used to mask the serial number when using the Twig filter (e.g. "*")')
                     ->defaultValue('*')
                     ->validate()
-                        ->ifTrue(static fn ($v): bool => $v !== '' && mb_strlen((string) $v, 'UTF-8') > 1)
-                        ->thenInvalid('mask_char must be a single character.')
+                        ->ifTrue(static fn ($v): bool => !is_scalar($v) || mb_strlen((string) $v, 'UTF-8') !== 1)
+                        ->thenInvalid('mask_char must be exactly one character.')
                     ->end()
                 ->end()
                 ->integerNode('mask_visible_last')

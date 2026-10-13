@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nowo\SerialNumberBundle\Tests\Unit\Twig;
 
+use InvalidArgumentException;
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use Nowo\SerialNumberBundle\Twig\SerialNumberTwigExtension;
 use PHPUnit\Framework\TestCase;
@@ -117,5 +118,25 @@ final class SerialNumberTwigExtensionTest extends TestCase
         } finally {
             mb_internal_encoding($previous !== false ? $previous : 'UTF-8');
         }
+    }
+
+    public function testMaskSerialNumberLongStringKeepsOriginalSuffix(): void
+    {
+        $serial = str_repeat('A', 5000) . 'WXYZ';
+        $result = $this->extension->maskSerialNumber($serial, 4, '*');
+
+        self::assertSame(2048, strlen($result));
+        self::assertSame(str_repeat('*', 2044) . 'WXYZ', $result);
+    }
+
+    public function testMaskSerialNumberLongStringFullyMaskedIsCapped(): void
+    {
+        self::assertSame(str_repeat('#', 2048), $this->extension->maskSerialNumber(str_repeat('A', 5000), 0, '#'));
+    }
+
+    public function testMaskSerialNumberEmptyMaskCharIsRejected(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->extension->maskSerialNumber('FAC-2025-00042', 4, '');
     }
 }

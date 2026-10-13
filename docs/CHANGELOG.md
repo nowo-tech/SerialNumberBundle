@@ -54,6 +54,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Security
+
+- `SerialNumberGenerator::generate()` substitutes placeholders in a single pass (`strtr`): a context value containing `{id}` or another `{placeholder}` is no longer re-substituted.
+
+### Fixed
+
+- Negative ids (`-5`, `'-42'`) are rejected with `InvalidArgumentException` instead of producing malformed padded serials such as `000-5`.
+- `mask_char: ''` is now rejected by the configuration, and `serial_number_mask` throws on an empty mask character (it used to output only the visible suffix).
+- `serial_number_mask` on serials longer than 2048 characters now shows the real last characters (the suffix was taken after truncation, i.e. from the middle of the string); the output is still capped at 2048 characters.
+
+### Changed
+
+- Minimum Symfony 6 version is now `^6.4` (the version CI tests), instead of `^6.0`.
+
 ## [1.0.18] - 2026-10-09
 
 ### Dependencies

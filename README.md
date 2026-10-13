@@ -1,6 +1,6 @@
 # Serial Number Bundle
 
-[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml) [![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net) [![Symfony](https://img.shields.io/badge/Symfony-6.0%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
+[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml) [![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net) [![Symfony](https://img.shields.io/badge/Symfony-6.4%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
 
@@ -49,7 +49,7 @@ $serial = $this->serialNumberGenerator->generate(
 ## Requirements
 
 - PHP >= 8.2, < 8.6
-- Symfony 6.0, 7.0, or 8.0 (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
+- Symfony 6.4, 7.0+, or 8.0+ (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
 - Twig 3.8+ or 4.x
 
 ## Documentation

@@ -7,6 +7,7 @@ namespace Nowo\SerialNumberBundle\Tests\Unit\DependencyInjection;
 use Nowo\SerialNumberBundle\DependencyInjection\Configuration;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\Definition\Processor;
 
 /**
@@ -60,5 +61,23 @@ final class ConfigurationTest extends TestCase
 
         self::assertSame('*', $config['mask_char']);
         self::assertSame(8, $config['mask_visible_last']);
+    }
+
+    public function testEmptyMaskCharIsRejected(): void
+    {
+        $this->expectException(InvalidConfigurationException::class);
+        $this->processor->processConfiguration($this->configuration, [['mask_char' => '']]);
+    }
+
+    public function testMultiCharMaskCharIsRejected(): void
+    {
+        $this->expectException(InvalidConfigurationException::class);
+        $this->processor->processConfiguration($this->configuration, [['mask_char' => '**']]);
+    }
+
+    public function testNullMaskCharIsRejected(): void
+    {
+        $this->expectException(InvalidConfigurationException::class);
+        $this->processor->processConfiguration($this->configuration, [['mask_char' => null]]);
     }
 }

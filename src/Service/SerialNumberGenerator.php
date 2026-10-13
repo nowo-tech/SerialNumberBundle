@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Nowo\SerialNumberBundle\Service;
 
+use InvalidArgumentException;
+
+use function is_numeric;
+use function sprintf;
+use function strtr;
+
 use const STR_PAD_LEFT;
 
 /**
@@ -35,6 +41,8 @@ final class SerialNumberGenerator
      * @param int|string $id The numeric id to inject (used for {id}); will be zero-padded if idPadding is set
      * @param int|null $idPadding If set, id is zero-padded to this length (e.g. 5 → 00042)
      *
+     * @throws InvalidArgumentException When $id is a negative number
+     *
      * @return string The generated serial number
      */
     public function generate(
@@ -43,17 +51,24 @@ final class SerialNumberGenerator
         int|string $id,
         ?int $idPadding = null,
     ): string {
+        if (is_numeric($id) && $id < 0) {
+            throw new InvalidArgumentException(sprintf('Serial number id must not be negative, got "%s".', $id));
+        }
+
         $idStr = (string) $id;
         if ($idPadding !== null && $idPadding > 0) {
             $idPadding = min($idPadding, self::MAX_ID_PADDING);
             $idStr     = str_pad($idStr, $idPadding, '0', STR_PAD_LEFT);
         }
 
-        $result = $pattern;
+        // Single pass: substituted values are never scanned again, so a context value containing
+        // "{id}" or another placeholder is output literally. A context "id" key keeps precedence over $id.
+        $map = [];
         foreach ($context as $key => $value) {
-            $result = str_replace('{' . $key . '}', (string) $value, $result);
+            $map['{' . $key . '}'] = (string) $value;
         }
+        $map += [self::ID_PLACEHOLDER => $idStr];
 
-        return str_replace(self::ID_PLACEHOLDER, $idStr, $result);
+        return strtr($pattern, $map);
     }
 }

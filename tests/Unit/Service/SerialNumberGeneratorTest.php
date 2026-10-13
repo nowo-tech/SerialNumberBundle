@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nowo\SerialNumberBundle\Tests\Unit\Service;
 
+use InvalidArgumentException;
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use PHPUnit\Framework\TestCase;
 
@@ -74,5 +75,40 @@ final class SerialNumberGeneratorTest extends TestCase
         $pattern = '{prefix}-{id}';
         $result  = $this->generator->generate($context, $pattern, 1, 100);
         self::assertSame('FAC-' . str_pad('1', 32, '0', STR_PAD_LEFT), $result);
+    }
+
+    public function testContextValueContainingPlaceholderIsNotReSubstituted(): void
+    {
+        $result = $this->generator->generate(
+            ['prefix' => '{year}{id}', 'year' => 2025],
+            '{prefix}-{year}-{id}',
+            42,
+            5,
+        );
+
+        self::assertSame('{year}{id}-2025-00042', $result);
+    }
+
+    public function testContextIdKeyKeepsPrecedenceOverId(): void
+    {
+        self::assertSame('X-ctx', $this->generator->generate(['id' => 'ctx'], 'X-{id}', 7));
+    }
+
+    public function testNegativeIdIsRejected(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->generator->generate([], '{id}', -5, 5);
+    }
+
+    public function testNegativeNumericStringIdIsRejected(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->generator->generate([], '{id}', '-42');
+    }
+
+    public function testZeroAndNonNumericStringIdsAreAccepted(): void
+    {
+        self::assertSame('000', $this->generator->generate([], '{id}', 0, 3));
+        self::assertSame('A-1', $this->generator->generate([], '{id}', 'A-1'));
     }
 }

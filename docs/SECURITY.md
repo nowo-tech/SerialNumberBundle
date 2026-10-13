@@ -31,7 +31,7 @@ Mitigations address **resource exhaustion (DoS)** and document **XSS** considera
 ### 1.2 DoS via very long serial strings
 
 - **Issue:** A multi-megabyte serial (e.g. from a database or template variable) could make `str_repeat` build a huge string.
-- **Mitigation:** Serial input is truncated to **2048** characters (`MAX_SERIAL_LENGTH`) before masking.
+- **Mitigation:** The masked output is capped at **2048** characters (`MAX_SERIAL_LENGTH`): the mask run is shortened, while the visible suffix is always taken from the original serial (so the last N characters shown are the real ones).
 
 ### 1.3 DoS via multi-character `mask_char`
 
@@ -72,7 +72,9 @@ Twig function `serial_number` and filter `serial_number_mask` do **not** mark ou
 Tests cover:
 
 - Negative `visibleLast` is treated as 0 (fully masked).
-- Very long serials are truncated (2048 limit).
+- Very long serials produce at most 2048 output characters and keep their real suffix.
+- Empty `maskChar` / `mask_char` is rejected.
+- Negative ids are rejected; context values containing placeholders are not re-substituted.
 - Multi-character `maskChar` is reduced to the first character.
 - Excessive `idPadding` is capped at 32.
 
