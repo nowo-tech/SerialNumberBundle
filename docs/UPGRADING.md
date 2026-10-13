@@ -1,7 +1,17 @@
 # Upgrading
 
-
 ## Unreleased
+
+## To 1.1.0
+
+From **1.0.18** — single-pass placeholder substitution, stricter masking input, Symfony >=6.4.
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
+
+- Negative ids and an empty `mask_char` now throw. Context values containing `{id}` or other placeholders are printed as-is (no re-substitution).
+- Symfony 6.0–6.3 is no longer allowed (`^6.4`).
 
 ## To 1.0.18
 
@@ -25,7 +35,6 @@ php bin/console cache:clear
 - No application upgrade steps for require-dev Igor tooling (REQ-CS-008). Consumers do not pull `igor-php/igor-php` transitively.
 
 ## Table of contents
-
 
 - [From 1.0.15 to 1.0.16](#from-1015-to-1016)
 - [From 1.0.14 to 1.0.15](#from-1014-to-1015)
