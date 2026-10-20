@@ -30,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Documentation
+
+- Documentation: wave-1 REQ compliance — README documentation list order (Code of Conduct in the base list, PSR / GitHub CI under Additional documentation), Version policy moved after the get-started sections, GitHub stars and Coverage badges, canonical bug report template, CONTRIBUTING Cursor Agent settings, TOCs for long docs.
+
 ## [1.1.0] - 2026-10-13
 
 ### Security

@@ -2,6 +2,12 @@
 
 Configuration is optional. Defaults are applied if the bundle is not configured.
 
+## Table of contents
+
+- [Options](#options)
+- [Example](#example)
+- [Limits (security)](#limits-security)
+
 ## Options
 
 | Option               | Type    | Default | Description                                                                 |

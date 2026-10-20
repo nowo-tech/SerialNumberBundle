@@ -1,6 +1,6 @@
 # Serial Number Bundle
 
-[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml) [![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net) [![Symfony](https://img.shields.io/badge/Symfony-6.4%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com)
+[![CI](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml/badge.svg)](https://github.com/nowo-tech/SerialNumberBundle/actions/workflows/ci.yml) [![Packagist Version](https://img.shields.io/packagist/v/nowo-tech/serial-number-bundle.svg?style=flat)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![Packagist Downloads](https://img.shields.io/packagist/dt/nowo-tech/serial-number-bundle.svg)](https://packagist.org/packages/nowo-tech/serial-number-bundle) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php)](https://php.net) [![Symfony](https://img.shields.io/badge/Symfony-6.4%2B%20%7C%207.4%2B%20%7C%208.0%20%7C%208.1%2B-000000?logo=symfony)](https://symfony.com) [![GitHub stars](https://img.shields.io/github/stars/nowo-tech/serial-number-bundle.svg?style=social&label=Star)](https://github.com/nowo-tech/SerialNumberBundle) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)](#tests-and-coverage)
 
 > ⭐ **Found this useful?** Install from Packagist and give it a star on GitHub.
 
@@ -15,12 +15,6 @@ This bundle is **FrankenPHP worker mode friendly** (including when the Symfony k
 - **SerialNumberGenerator** service: build serials from `context` (variables), `pattern` (string with `{var}` and `{id}`), and numeric `id` (optional zero-padding).
 - **Twig function** `serial_number(context, pattern, id, padding?)`: generate serial in templates.
 - **Twig filter** `serial_number_mask(serial, visibleLast?, maskChar?)`: mask a serial leaving only the last N characters visible (e.g. `***************0042`).
-
-## Version policy
-
-The Composer package name is [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle). Source code and issues are in the GitHub repository [`nowo-tech/SerialNumberBundle`](https://github.com/nowo-tech/SerialNumberBundle).
-
-We follow [Semantic Versioning](https://semver.org/). See [Changelog](docs/CHANGELOG.md) for release notes. Security support by major version is described in the [Security policy](.github/SECURITY.md#supported-versions).
 
 ## Quick example
 
@@ -52,13 +46,19 @@ $serial = $this->serialNumberGenerator->generate(
 - Symfony 6.4, 7.0+, or 8.0+ (see `composer.json`; CI exercises 6.4, 7.0, 7.4, 8.0, and 8.1)
 - Twig 3.8+ or 4.x
 
+## Version policy
+
+The Composer package name is [`nowo-tech/serial-number-bundle`](https://packagist.org/packages/nowo-tech/serial-number-bundle). Source code and issues are in the GitHub repository [`nowo-tech/SerialNumberBundle`](https://github.com/nowo-tech/SerialNumberBundle).
+
+We follow [Semantic Versioning](https://semver.org/). See [Changelog](docs/CHANGELOG.md) for release notes. Security support by major version is described in the [Security policy](.github/SECURITY.md#supported-versions).
+
 ## Documentation
 
 - [Installation](docs/INSTALLATION.md)
 - [Configuration](docs/CONFIGURATION.md)
-- [PSR evaluation (REQ-CS-007)](docs/PSR.md)
 - [Usage](docs/USAGE.md)
 - [Contributing](docs/CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Changelog](docs/CHANGELOG.md)
 - [Upgrading](docs/UPGRADING.md)
 - [Release](docs/RELEASE.md)
@@ -69,8 +69,8 @@ $serial = $this->serialNumberGenerator->generate(
 
 ### Additional documentation
 
+- [PSR evaluation (REQ-CS-007)](docs/PSR.md)
 - [GitHub Actions CI requirements](docs/GITHUB_CI.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Demo (Symfony 8)](demo/README.md) — run `make -C demo up-symfony8` from the bundle root.
 - [Demo with FrankenPHP (development and production)](docs/DEMO-FRANKENPHP.md)
 - [FrankenPHP worker audit (kernel not reset)](docs/FRANKENPHP-WORKER-AUDIT.md)

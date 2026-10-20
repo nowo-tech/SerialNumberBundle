@@ -1,5 +1,11 @@
 # Installation
 
+## Table of contents
+
+- [Composer](#composer)
+- [Enable the bundle](#enable-the-bundle)
+- [Optional configuration](#optional-configuration)
+
 ## Composer
 
 ```bash
