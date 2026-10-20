@@ -17,6 +17,12 @@ make igor
 make rector-dry
 ```
 
+## Table of contents
+
+- [Code of Conduct](#code-of-conduct)
+- [Cursor Agent](#cursor-agent)
+- [Git hooks (REQ-GIT-001)](#git-hooks-req-git-001)
+
 ## Code of Conduct
 
 This project follows the [Contributor Covenant Code of Conduct](../CODE_OF_CONDUCT.md). By participating, you are expected to uphold it. Please report unacceptable behavior to **hectorfranco@nowo.tech**.
