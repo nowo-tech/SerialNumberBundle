@@ -3,6 +3,7 @@
 ## Table of contents
 
 - [Unreleased](#unreleased)
+- [To 1.1.1](#to-111)
 - [To 1.1.0](#to-110)
 - [To 1.0.18](#to-1018)
 - [To 1.0.17](#to-1017)
@@ -26,6 +27,14 @@
   - [Behaviour and limits in 1.0](#behaviour-and-limits-in-10)
 
 ## Unreleased
+
+## To 1.1.1
+
+From **1.1.0**:
+
+```bash
+composer update nowo-tech/serial-number-bundle
+```
 
 ## To 1.1.0
 

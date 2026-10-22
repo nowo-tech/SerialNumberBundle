@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Table of contents
 
 - [[Unreleased]](#unreleased)
+- [[1.1.1] - 2026-10-22](#111---2026-10-22)
 - [[1.1.0] - 2026-10-13](#110---2026-10-13)
 - [[1.0.18] - 2026-10-09](#1018---2026-10-09)
 - [[1.0.17] - 2026-09-27](#1017---2026-09-27)
@@ -29,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - [[1.0.0] - 2026-03-12](#100---2026-03-12)
 
 ## [Unreleased]
+
+## [1.1.1] - 2026-10-22
+
+Dependency refresh, wave-1 docs, Rector PHP 8.2, release-check chain, demo update-bundle first. See [UPGRADING](UPGRADING.md#to-111).
 
 ### Changed
 
@@ -276,7 +281,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Enforce single-character mask in config and in Twig mask filter (multi-char uses first character only).
 - Treat negative `visibleLast` in `serial_number_mask` as zero to prevent huge `str_repeat` output.
 
-[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.18...v1.1.0
 [1.0.18]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.17...v1.0.18
 [1.0.16]: https://github.com/nowo-tech/SerialNumberBundle/compare/v1.0.15...v1.0.16
