@@ -117,7 +117,11 @@ test-coverage-all:
 verify-all:
 	@$(MAKE) verify-symfony8
 
-release-check: test-coverage-all release-verify
+# REQ-DEMO-007: refresh the bundle in the demo before testing it.
+update-bundle-all:
+	@$(MAKE) -C symfony8 up && $(MAKE) update-bundle-symfony8
+
+release-check: update-bundle-all test-coverage-all release-verify
 	@echo "All demos passed release-check."
 
 release-verify:

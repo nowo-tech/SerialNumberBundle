@@ -34,10 +34,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Dependencies refreshed (Composer and pnpm/npm lock files of the bundle and its demos, campaign 2026-10-19).
 - `.php-cs-fixer.dist.php`: `new ParallelConfig(2)` (REQ-CS-001).
+- Rector targets the PHP 8.2 floor (REQ-CS-003); `release-check` runs sequentially from `ensure-up` and adds `check-open-prs` (REQ-MAKE-002); demo `release-check` refreshes the bundle first (REQ-DEMO-007); SECURITY checklist gains the AI security audit row (REQ-SEC-002).
 
 ### Documentation
 
 - Documentation: wave-1 REQ compliance — README documentation list order (Code of Conduct in the base list, PSR / GitHub CI under Additional documentation), Version policy moved after the get-started sections, GitHub stars and Coverage badges, canonical bug report template, CONTRIBUTING Cursor Agent settings, TOCs for long docs.
+
+### Fixed
+
+- `.scripts/check-no-cursor-coauthor.sh` also runs inside git worktrees (`.git` file instead of directory).
 
 ## [1.1.0] - 2026-10-13
 

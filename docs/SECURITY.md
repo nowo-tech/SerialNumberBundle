@@ -96,6 +96,7 @@ Before tagging a release, confirm:
 | **Cryptography** | If used: keys from secure config; never hardcoded. |
 | **Permissions / exposure** | Routes and admin features documented; roles configured for production. |
 | **Limits / DoS** | Timeouts, size limits, rate limits where applicable. |
+| **AI security audit (REQ-SEC-004)** | Latest recorded grade in the nowo-tech bundles security analysis catalog (`BUNDLES_SECURITY_ANALYSIS.md`); re-run when the generators, Twig helpers or configuration inputs change. |
 
 Record confirmation in the release PR or tag notes.
 
