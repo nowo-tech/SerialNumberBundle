@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/serial-number-bundle",
-                "reference": "ac17a08e3bd024a8982289b7fe70246ef6322f27"
+                "reference": "5bda3395d61c8f719e918aa1a7f636f7d2f9fc15"
             },
             "require": {
                 "php": ">=8.2 <8.6",
@@ -1800,16 +1800,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.43.0",
+            "version": "v1.43.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72"
+                "reference": "122889ed24dc000165bcbfd77ec412f15cbdfc6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
-                "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/122889ed24dc000165bcbfd77ec412f15cbdfc6a",
+                "reference": "122889ed24dc000165bcbfd77ec412f15cbdfc6a",
                 "shasum": ""
             },
             "require": {
@@ -1861,7 +1861,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.43.0"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.43.3"
             },
             "funding": [
                 {
@@ -1881,7 +1881,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-24T15:19:04+00:00"
+            "time": "2026-10-28T09:35:49+00:00"
         },
         {
             "name": "symfony/polyfill-php85",
@@ -3342,16 +3342,16 @@
         },
         {
             "name": "nowo-tech/twig-inspector-bundle",
-            "version": "v1.2.0",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nowo-tech/TwigInspectorBundle.git",
-                "reference": "827d2284be47e86f344faf2f0b32b2a252154b1d"
+                "reference": "3944cf2ec11fcd24e59257d12de7a9c9a52e7d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/827d2284be47e86f344faf2f0b32b2a252154b1d",
-                "reference": "827d2284be47e86f344faf2f0b32b2a252154b1d",
+                "url": "https://api.github.com/repos/nowo-tech/TwigInspectorBundle/zipball/3944cf2ec11fcd24e59257d12de7a9c9a52e7d03",
+                "reference": "3944cf2ec11fcd24e59257d12de7a9c9a52e7d03",
                 "shasum": ""
             },
             "require": {
@@ -3449,7 +3449,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-13T10:24:28+00:00"
+            "time": "2026-10-25T10:18:15+00:00"
         },
         {
             "name": "phar-io/manifest",
