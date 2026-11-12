@@ -31,6 +31,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Tests
+
+- Tests: kept-alive worker test `WorkerKeptAliveKernelTest` (one kernel or container, never reset, 1,200 alternating iterations, memory bound) and `docs/FRANKENPHP-WORKER-AUDIT.md` refreshed for v1.1.1; no runtime change.
+
 ## [1.1.1] - 2026-10-22
 
 Dependency refresh, wave-1 docs, Rector PHP 8.2, release-check chain, demo update-bundle first. See [UPGRADING](UPGRADING.md#to-111).
