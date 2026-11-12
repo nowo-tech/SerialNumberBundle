@@ -3,8 +3,8 @@
 | Field | Value |
 |-------|-------|
 | Package | `nowo-tech/serial-number-bundle` (`symfony-bundle`) |
-| Audited revision | `v1.0.16` (this release) |
-| Audit date | 2026-09-25 |
+| Audited revision | `v1.1.1` (kept-alive test added 2026-11-12; earlier review kept below) |
+| Audit date | 2026-11-12 (earlier audit dates kept in the history) |
 | Method | Manual review of every file under `src/` (services, Twig extension, DI extension, config, `services.yaml`) plus PHPUnit coverage of process-wide `mb_internal_encoding` isolation |
 | **Verdict** | ✅ **Viable (100%)** — both services are pure functions over their arguments and immutable config; safe with or without kernel reset |
 
@@ -14,6 +14,7 @@
 - [Summary](#summary)
 - [Services reviewed](#services-reviewed)
 - [Findings](#findings)
+- [Kept-alive test (REQ-RUNTIME-002)](#kept-alive-test-req-runtime-002)
 - [Usage recommendations in worker mode](#usage-recommendations-in-worker-mode)
 - [Re-audit triggers](#re-audit-triggers)
 
@@ -60,6 +61,14 @@ Worker demo: `demo/symfony8/docker/frankenphp/Caddyfile` has a `worker` block, a
 No blocking findings. `SerialNumberGenerator::generate()` and `SerialNumberTwigExtension::maskSerialNumber()` build their result only from their arguments and the `readonly` config values injected at construction. Nothing is stored between calls.
 
 **Hardened in 1.0.16:** masking and config validation pass encoding `'UTF-8'` to every `mb_strlen` / `mb_substr` call so a third-party library that changes `mb_internal_encoding()` in a long-lived worker cannot alter multibyte serial masking. Covered by `testMaskSerialNumberIgnoresProcessMbInternalEncoding`.
+
+## Kept-alive test (REQ-RUNTIME-002)
+
+Test: `Nowo\SerialNumberBundle\Tests\Integration\Worker\WorkerKeptAliveKernelTest` (`tests/Integration/Worker/WorkerKeptAliveKernelTest.php`). It uses one compiled container and one `HttpKernel` (the package has no framework-bundle dependency); each request renders a Twig template with the bundle's `serial_number` function and `serial_number_mask` filter for its own tenant and id. `services_resetter` / `kernel.reset` is **never** called. It runs 1,200 iterations alternating two users, asserts every response contains only its own data (nothing of the other user or of the previous iteration), and that memory growth after a 100-iteration warm-up stays below 4 MiB.
+
+Result: no state is carried between requests, so the bundle is **safe with kernel reset false**.
+
+Rule 7: the bundle never clears or resets the host's default EntityManager (it has no persistence and never allocates the id).
 
 ## Usage recommendations in worker mode
 
