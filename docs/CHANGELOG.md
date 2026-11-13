@@ -31,6 +31,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `Contract\SerialNumberGeneratorInterface` (`generate()`), implemented by `SerialNumberGenerator` and aliased in the container; the Twig extension type-hints it (REQ-ARCH-001 rule 1).
+- `docs/USAGE.md`: "Standard Symfony and DDD hosts" section.
+
 ### Changed
 
 - Demo uses the UiKit base style and FormKit forms (REQ-DEMO-014/015). The bundle demo has no forms, so only the UiKit shell applies.

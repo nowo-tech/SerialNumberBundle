@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nowo\SerialNumberBundle\Service;
 
 use InvalidArgumentException;
+use Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface;
 
 use function is_numeric;
 use function sprintf;
@@ -21,7 +22,7 @@ use const STR_PAD_LEFT;
  * @author Héctor Franco Aceituno <hectorfranco@nowo.tech>
  * @copyright 2026 Nowo.tech
  */
-final class SerialNumberGenerator
+final class SerialNumberGenerator implements SerialNumberGeneratorInterface
 {
     /** @var string Placeholder in the pattern replaced by the numeric id (optionally padded). */
     private const ID_PLACEHOLDER = '{id}';
