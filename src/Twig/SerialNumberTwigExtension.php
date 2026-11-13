@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nowo\SerialNumberBundle\Twig;
 
 use InvalidArgumentException;
-use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
+use Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -31,12 +31,12 @@ final class SerialNumberTwigExtension extends AbstractExtension
     private const MB_ENCODING = 'UTF-8';
 
     /**
-     * @param SerialNumberGenerator $generator Service used to build serials from pattern, context and id
+     * @param SerialNumberGeneratorInterface $generator Service used to build serials from pattern, context and id
      * @param string $defaultMaskChar Default character for masking (e.g. '*')
      * @param int $defaultVisibleLast Default number of trailing characters to leave visible when masking
      */
     public function __construct(
-        private readonly SerialNumberGenerator $generator,
+        private readonly SerialNumberGeneratorInterface $generator,
         private readonly string $defaultMaskChar,
         private readonly int $defaultVisibleLast,
     ) {

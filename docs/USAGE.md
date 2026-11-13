@@ -8,16 +8,17 @@
 - [Twig filter: serial_number_mask](#twig-filter-serial_number_mask)
 - [Combined: generate and mask in Twig](#combined-generate-and-mask-in-twig)
 - [FrankenPHP worker mode](#frankenphp-worker-mode)
+- [Standard Symfony and DDD hosts](#standard-symfony-and-ddd-hosts)
 
 ## Service: SerialNumberGenerator
 
-Inject `Nowo\SerialNumberBundle\Service\SerialNumberGenerator` and call `generate()`:
+Inject `Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface` (implemented by the final `Service\SerialNumberGenerator`, which still works as a type hint) and call `generate()`:
 
 ```php
-use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
+use Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface;
 
 public function __construct(
-    private readonly SerialNumberGenerator $serialNumberGenerator,
+    private readonly SerialNumberGeneratorInterface $serialNumberGenerator,
 ) {}
 
 public function createInvoice(): string
@@ -88,3 +89,32 @@ This generates the full serial and then masks it for display (e.g. in tables or 
 ## FrankenPHP worker mode
 
 Services are **stateless**: safe when FrankenPHP keeps the Symfony kernel warm without reset between requests. Multibyte masking always uses UTF-8 and does not depend on `mb_internal_encoding()`. Obtain the numeric id from a transactional source on every request (the bundle does not allocate ids). Full audit: [FRANKENPHP-WORKER-AUDIT.md](FRANKENPHP-WORKER-AUDIT.md).
+
+## Standard Symfony and DDD hosts
+
+The bundle works with no configuration in a standard Symfony app: autowire `SerialNumberGeneratorInterface` or use the Twig function. It has no entities, no events and no database access, so there is nothing to map. The generator is pure: the id always comes from the caller (a sequence, a database id, an aggregate counter).
+
+A DDD / hexagonal host keeps its domain free of framework types:
+
+- **Port to depend on:** `Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface`. Its signature uses only arrays of scalars, `string`, `int` and `?int`; no Symfony, Doctrine or HTTP type. Declare your own port in the application layer (for example `App\Application\Port\InvoiceNumbers`) and implement it in Infrastructure by delegating to the interface:
+
+  ```php
+  final class InvoiceNumbersAdapter implements InvoiceNumbers
+  {
+      public function __construct(private readonly SerialNumberGeneratorInterface $generator) {}
+
+      public function next(int $sequence, int $year): string
+      {
+          return $this->generator->generate(['prefix' => 'FAC', 'year' => $year], '{prefix}-{year}-{id}', $sequence, 5);
+      }
+  }
+  ```
+
+- **Replace the implementation:** re-alias the interface to your own service (the Twig extension and every autowired consumer follow the alias):
+
+  ```yaml
+  services:
+      Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface: '@App\Infrastructure\Numbering\MyGenerator'
+  ```
+
+- **Persistence and events:** none (REQ-ARCH-001 rules 2, 4, 6 and 7 do not apply). Configuration comes from the bundle config tree only.

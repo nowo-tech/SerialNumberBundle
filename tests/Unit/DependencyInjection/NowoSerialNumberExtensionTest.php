@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Nowo\SerialNumberBundle\Tests\Unit\DependencyInjection;
 
+use Nowo\SerialNumberBundle\Contract\SerialNumberGeneratorInterface;
 use Nowo\SerialNumberBundle\DependencyInjection\NowoSerialNumberExtension;
 use Nowo\SerialNumberBundle\Service\SerialNumberGenerator;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -55,5 +57,20 @@ final class NowoSerialNumberExtensionTest extends TestCase
         $this->extension->load([], $container);
 
         self::assertTrue($container->has(SerialNumberGenerator::class));
+    }
+
+    public function testGeneratorInterfaceIsAliasedAndHostCanOverrideIt(): void
+    {
+        $container = new ContainerBuilder();
+        $this->extension->load([], $container);
+
+        self::assertTrue($container->hasAlias(SerialNumberGeneratorInterface::class));
+        self::assertSame(SerialNumberGenerator::class, (string) $container->getAlias(SerialNumberGeneratorInterface::class));
+        self::assertSame('FAC-00042', (new SerialNumberGenerator())->generate(['prefix' => 'FAC'], '{prefix}-{id}', 42, 5));
+        self::assertInstanceOf(SerialNumberGeneratorInterface::class, new SerialNumberGenerator());
+
+        $container->register('app.generator', stdClass::class);
+        $container->setAlias(SerialNumberGeneratorInterface::class, 'app.generator');
+        self::assertSame('app.generator', (string) $container->getAlias(SerialNumberGeneratorInterface::class));
     }
 }
