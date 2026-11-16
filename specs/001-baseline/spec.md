@@ -71,7 +71,7 @@ See user stories US-01…US-05 in [`docs/SPEC-DRIVEN-DEVELOPMENT.md`](../../docs
 
 ## Success Criteria
 
-- **SC-001**: **6/6** files mapped in [`code-inventory.md`](code-inventory.md).
+- **SC-001**: **7/7** files mapped in [`code-inventory.md`](code-inventory.md).
 - **SC-002**: PHPUnit covers pattern substitution, padding cap, and mask edge cases.
 - **SC-003**: Config keys match [`docs/CONFIGURATION.md`](../../docs/CONFIGURATION.md).
 
