@@ -32,6 +32,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+
+- Spec Kit: `specs/001-baseline/code-inventory.md` maps `Contract/SerialNumberGeneratorInterface` (7/7 artifacts) (REQ-SPECKIT-001/003)
+- README: Tests and coverage marks TS/JS and Python as N/A (REQ-TEST-007)
+- Demo: `symfony/debug-bundle` in the Symfony 8 demo dev stack (REQ-DEMO-001)
+
 ## [1.2.0] - 2026-11-13
 
 ### Added

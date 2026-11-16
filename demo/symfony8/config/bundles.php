@@ -5,6 +5,7 @@ use Nowo\HotReloadBundle\NowoHotReloadBundle;
 use Nowo\SerialNumberBundle\NowoSerialNumberBundle;
 use Nowo\TwigInspectorBundle\NowoTwigInspectorBundle;
 use Nowo\UiKitBundle\NowoUiKitBundle;
+use Symfony\Bundle\DebugBundle\DebugBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Bundle\WebProfilerBundle\WebProfilerBundle;
@@ -14,6 +15,7 @@ return [
     FrameworkBundle::class         => ['all' => true],
     TwigBundle::class              => ['all' => true],
     WebProfilerBundle::class       => ['dev' => true, 'test' => true],
+    DebugBundle::class             => ['dev' => true],
     NowoSerialNumberBundle::class  => ['all' => true],
     NowoUiKitBundle::class         => ['all' => true],
     NowoHotReloadBundle::class     => ['dev' => true, 'test' => true],

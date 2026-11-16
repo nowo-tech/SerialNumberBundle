@@ -2,7 +2,7 @@
 
 **Baseline spec**: [`spec.md`](spec.md)  
 **Package**: `nowo-tech/serial-number-bundle`  
-**Last audited**: 2026-09-25
+**Last audited**: 2026-11-16
 
 This file proves that **every production source artifact** under `src/` is referenced by the baseline specification. PHPUnit under `tests/` is out of scope unless promoted in the spec.
 
@@ -14,6 +14,7 @@ This file proves that **every production source artifact** under `src/` is refer
 | `DependencyInjection/Configuration.php` | Mask defaults config | FR-CFG-001 |
 | `DependencyInjection/NowoSerialNumberExtension.php` | DI extension + parameters | FR-CFG-002 |
 | `Twig/SerialNumberTwigExtension.php` | `serial_number` + `serial_number_mask` | FR-TWIG-001, FR-TWIG-002, FR-WORKER-001 |
+| `Contract/SerialNumberGeneratorInterface.php` | Generator port (REQ-ARCH-001); type-hint target for hosts | FR-GEN-001 |
 | `Service/SerialNumberGenerator.php` | Pattern substitution engine | FR-GEN-001, FR-WORKER-001 |
 
 ## Symfony config (`src/Resources/config/`)
@@ -26,6 +27,6 @@ This file proves that **every production source artifact** under `src/` is refer
 
 | Category | Files | Mapped |
 | --- | ---: | ---: |
-| PHP classes | 5 | 5 |
+| PHP classes | 6 | 6 |
 | YAML config | 1 | 1 |
-| **Total `src/` artifacts** | **6** | **6** |
+| **Total `src/` artifacts** | **7** | **7** |
