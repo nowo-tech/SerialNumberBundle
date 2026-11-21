@@ -7,34 +7,29 @@
 {% endblock %}
 
 {% block body %}
-    <p><span class="nowo-ui-badge nowo-ui-badge--primary">{{ version_badge }}</span></p>
-
     {% for ex in examples %}
-    <section class="nowo-ui-card">
-        <div class="nowo-ui-card__body">
-            <h2 class="nowo-ui-card__title">{{ ex.name }}</h2>
-            <dl class="nowo-ui-detail-list">
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Pattern</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.pattern }}</code></dd></div>
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Context</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.context|json_encode }}</code></dd></div>
-                {% if ex.id is not null %}
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Id</dt><dd class="nowo-ui-detail-list__value">{{ ex.id }}{% if ex.padding %} (padding {{ ex.padding }}){% endif %}</dd></div>
-                {% endif %}
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Result</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.serial }}</code></dd></div>
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Masked (last 4)</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.serial|serial_number_mask(4) }}</code></dd></div>
-            </dl>
-        </div>
-    </section>
+        {% embed '@NowoUiKit/demo_platform/_section.html.twig' with {title: ex.name, kind: 'detail', ex: ex} %}
+            {% block section_body %}
+                <dl class="nowo-ui-detail-list">
+                    <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Pattern</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.pattern }}</code></dd></div>
+                    <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Context</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.context|json_encode }}</code></dd></div>
+                    {% if ex.id is not null %}
+                        <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Id</dt><dd class="nowo-ui-detail-list__value">{{ ex.id }}{% if ex.padding %} (padding {{ ex.padding }}){% endif %}</dd></div>
+                    {% endif %}
+                    <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Result</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.serial }}</code></dd></div>
+                    <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Masked (last 4)</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ ex.serial|serial_number_mask(4) }}</code></dd></div>
+                </dl>
+            {% endblock %}
+        {% endembed %}
     {% endfor %}
 
-    <section class="nowo-ui-card">
-        <div class="nowo-ui-card__body">
-            <h2 class="nowo-ui-card__title">Generate in Twig with the same pattern</h2>
-            <p>Example with the first pattern (<code class="nowo-ui-code">{{ examples[0].pattern }}</code>), id 99, padding 5:</p>
+    {% embed '@NowoUiKit/demo_platform/_section.html.twig' with {title: 'Generate in Twig with the same pattern', intro: 'Example with the first pattern, id 99, padding 5. In Twig the id is the third argument of serial_number().', kind: 'detail', first: examples[0]} %}
+        {% block section_body %}
             <dl class="nowo-ui-detail-list">
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Full</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ serial_number(examples[0].context, examples[0].pattern, 99, 5) }}</code></dd></div>
-                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Masked</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ serial_number(examples[0].context, examples[0].pattern, 99, 5)|serial_number_mask(4) }}</code></dd></div>
+                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Pattern</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ first.pattern }}</code></dd></div>
+                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Full</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ serial_number(first.context, first.pattern, 99, 5) }}</code></dd></div>
+                <div class="nowo-ui-detail-list__item"><dt class="nowo-ui-detail-list__term">Masked</dt><dd class="nowo-ui-detail-list__value"><code class="nowo-ui-code">{{ serial_number(first.context, first.pattern, 99, 5)|serial_number_mask(4) }}</code></dd></div>
             </dl>
-            <p class="nowo-ui-muted">In Twig the <code class="nowo-ui-code">id</code> is the third argument of <code class="nowo-ui-code">serial_number()</code>.</p>
-        </div>
-    </section>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}
